@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gokulraj V — Software Engineer &amp; Developer Portfolio</title>
+  <title>Gokulraj V — Java Full Stack Developer &amp; Ex-Zoho Trainee Portfolio</title>
+  <meta name="description" content="Portfolio of Gokulraj V - Java Full Stack Developer, Ex-Zoho Trainee (ZSGS), B.E. CSE Graduate (2025). Specializing in Spring Boot, Microservices, DSA, and Testing." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg: #090d16; /* Deep elegant midnight slate */
+      --bg: #090d16;
       --white: #ffffff;
-      --card: #111726; /* Deep slate card background */
+      --card: #111726;
       --card-hover: #172033;
-      --accent: #60a5fa; /* Modern slate blue accent */
+      --accent: #60a5fa;
       --accent-lt: #93c5fd;
       --accent-dk: #2563eb;
-      --gold: #c2985b; /* Classic gold/bronze accent */
+      --gold: #c2985b;
       --gold-hover: #d4af37;
-      --text: #f8fafc; /* Near-white crisp text */
-      --text-muted: #94a3b8; /* Slate gray secondary text */
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
       --text-faint: #64748b;
-      --border: rgba(255, 255, 255, 0.08); /* Sophisticated thin borders */
+      --border: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(255, 255, 255, 0.16);
       --shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
       --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.5);
@@ -63,13 +64,13 @@
       position:fixed;top:0;width:100%;z-index:100;
       padding:1.2rem 5%;
       display:flex;align-items:center;justify-content:space-between;
-      background:rgba(9, 13, 22, 0.85);backdrop-filter:blur(20px);
+      background:rgba(9, 13, 22, 0.88);backdrop-filter:blur(20px);
       border-bottom:1px solid var(--border);
       transition: padding 0.3s var(--ease);
     }
-    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--text);font-weight:600; letter-spacing: -0.01em;}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--text);font-weight:600; letter-spacing: -0.01em; text-decoration: none;}
     .nav-logo span{color:var(--gold)}
-    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{
       font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:var(--text-muted);text-decoration:none;
       transition: all 0.3s var(--ease);
@@ -91,8 +92,8 @@
       border-radius:30px;background:rgba(194,152,91,0.08);border:1px solid rgba(194,152,91,0.2);
       font-size:0.7rem;font-weight:600;letter-spacing:0.04em;color:var(--gold);
     }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(194,152,91,0.4)}70%{box-shadow:0 0 0 10px rgba(194,152,91,0)}100%{box-shadow:0 0 0 0 rgba(194,152,91,0)}}
+    .dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)}70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
 
     /* ── NAV TOGGLE ── */
     .nav-toggle {
@@ -123,17 +124,17 @@
 
     /* ── HERO ── */
     #hero{
-      min-height:100vh;display:flex;align-items:center;
+      min-height:100vh;
       padding:8rem 5% 5rem;
       display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
       background: radial-gradient(circle at 90% 10%, rgba(96, 165, 250, 0.03) 0%, transparent 40%),
                   radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.02) 0%, transparent 40%);
     }
-    .hero-tag{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem}
+    .hero-tag{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem}
     .hero-tag::before{content:'';width:3rem;height:1px;background:var(--gold); opacity: 0.6;}
-    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:1.8rem;color:var(--text)}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:400;line-height:1.05;margin-bottom:1.8rem;color:var(--text)}
     h1 em{font-style:italic;color:var(--gold); font-weight: 500;}
-    .hero-desc{font-size:1.05rem;color:var(--text-muted);line-height:1.8;margin-bottom:2.5rem;font-weight:300;max-width:500px}
+    .hero-desc{font-size:1.05rem;color:var(--text-muted);line-height:1.8;margin-bottom:2.5rem;font-weight:300;max-width:540px}
     .hero-ctas{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:3rem}
     
     .btn{
@@ -170,7 +171,7 @@
 
     /* hero photo */
     .hero-visual{position:relative;display:flex;justify-content:center}
-    .photo-wrap{position:relative;width:400px;height:480px}
+    .photo-wrap{position:relative;width:380px;height:460px}
     .photo-bg{position:absolute;top:15px;left:15px;width:100%;height:100%;border:2px solid var(--gold);border-radius:8px;z-index:-1;}
     .photo-frame{position:relative;width:100%;height:100%;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);background:var(--card);}
     .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top; transition: transform 0.6s var(--ease);filter:grayscale(10%);}
@@ -198,14 +199,7 @@
 
     /* ── ABOUT ── */
     #about{background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); position: relative; overflow: hidden;}
-    #about::after {
-      content: "";
-      position: absolute;
-      top: -10%; right: -5%; width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(96, 165, 250, 0.03) 0%, transparent 70%);
-      z-index: 0;
-    }
-    .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;align-items:start;margin-top:3rem; position: relative; z-index: 1;}
+    .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;margin-top:3rem; position: relative; z-index: 1;}
     .about-text p{font-size:1.05rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem;font-weight:300}
     .about-text strong{color:var(--text);font-weight:600}
     .info-pills{display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:2rem}
@@ -229,8 +223,78 @@
     .joining-banner .text .t1{font-weight:700;font-size:1rem;color:var(--text)}
     .joining-banner .text .t2{font-size:0.8rem;color:var(--gold);margin-top:0.3rem}
 
+    /* ── TRAINING & EXPERIENCE ── */
+    #experience{background:var(--bg); border-bottom:1px solid var(--border); position: relative;}
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.4s var(--ease);
+      margin-top: 2rem;
+    }
+    .exp-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.2rem;
+    }
+    .exp-role {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-company {
+      font-size: 1.05rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .exp-bullets li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .exp-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
     /* ── SKILLS ── */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%, 280px),1fr));gap:1.8rem;margin-top:3rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%, 300px),1fr));gap:1.8rem;margin-top:3rem}
     .skill-card{
       background:var(--card);border:1px solid var(--border);border-radius:8px;padding:2rem;
       transition:all 0.4s var(--ease);position:relative;overflow:hidden;
@@ -240,90 +304,36 @@
     .skill-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-8px); border-color: var(--gold);}
     .skill-card:hover::after{transform:scaleX(1)}
     .skill-icon{font-size:1.8rem;margin-bottom:1rem; display: block;}
-    .skill-name{font-weight:700;font-size:1rem;margin-bottom:1rem;color:var(--text)}
+    .skill-name{font-weight:700;font-size:1.05rem;margin-bottom:1rem;color:var(--text)}
     .tags{display:flex;flex-wrap:wrap;gap:0.5rem}
-    .tag{padding:0.3rem 0.8rem;border-radius:20px;background:rgba(255, 255, 255, 0.04);border:1px solid var(--border);font-size:0.75rem;color:var(--text-muted); font-weight: 500;}
+    .tag{padding:0.35rem 0.85rem;border-radius:20px;background:rgba(255, 255, 255, 0.04);border:1px solid var(--border);font-size:0.75rem;color:var(--text-muted); font-weight: 500;}
 
     /* ── PROJECTS ── */
     #projects{background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); position: relative;}
-    #projects::before {
-      content: "";
-      position: absolute;
-      bottom: -10%; left: -5%; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(194, 152, 91, 0.02) 0%, transparent 70%);
-      z-index: 0;
-    }
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%, 320px),1fr));gap:2.5rem;margin-top:3.5rem; position: relative; z-index: 1;}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%, 340px),1fr));gap:2.5rem;margin-top:3.5rem; position: relative; z-index: 1;}
     .project-card{
       background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;
-      transition:all 0.5s var(--ease); box-shadow: var(--shadow);
+      transition:all 0.5s var(--ease); box-shadow: var(--shadow); display: flex; flex-direction: column;
     }
     .project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-10px); border-color: var(--gold);}
-    .project-header{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem; transition: all 0.5s var(--ease);}
-    .project-card:hover .project-header { transform: scale(1.05); }
+    .project-header{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem; transition: all 0.5s var(--ease); position: relative;}
+    .project-card:hover .project-header { transform: scale(1.03); }
     .ph-1{background:linear-gradient(135deg,#1e293b,#0f172a); border-bottom:1px solid var(--border);}
     .ph-2{background:linear-gradient(135deg,#2d1f10,#171007); border-bottom:1px solid var(--border);}
     .ph-3{background:linear-gradient(135deg,#112a1d,#09150e); border-bottom:1px solid var(--border);}
     .ph-4{background:linear-gradient(135deg,#0e1e38,#070f1c); border-bottom:1px solid var(--border);}
-    .project-body{padding:2rem}
-    .project-title{font-weight:700;font-size:1.1rem;margin-bottom:0.6rem;color:var(--text)}
-    .project-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem; height: 4.5em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
-    .project-links{display:flex;gap:1.2rem}
+    .ph-5{background:linear-gradient(135deg,#1c102a,#0f0817); border-bottom:1px solid var(--border);}
+    .project-body{padding:2rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;}
+    .project-title{font-weight:700;font-size:1.15rem;margin-bottom:0.6rem;color:var(--text)}
+    .project-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.2rem; min-height: 4.5em; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;}
+    .project-bullets { list-style: none; margin-bottom: 1.2rem; gap: 0.4rem; display: flex; flex-direction: column; }
+    .project-bullets li { font-size: 0.8rem; color: var(--text-faint); position: relative; padding-left: 1.2rem; line-height: 1.5; }
+    .project-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--gold); }
+    .project-links{display:flex;gap:1.2rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border);}
     .p-link{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);text-decoration:none;font-weight:700;display:flex;align-items:center;gap:0.4rem;transition:all 0.3s var(--ease)}
     .p-link:hover{color:var(--text); transform: translateX(3px);}
 
-    /* ── CODING PROFILES ── */
-    #coding{text-align:center; position: relative;}
-    .coding-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;margin-top:3.5rem}
-    .coding-card{
-      width:240px;padding:3rem 2rem;text-align:center;border:1px solid var(--border);border-radius:12px;
-      background:var(--card);text-decoration:none;color:var(--text);
-      transition:all 0.4s var(--ease);position:relative;overflow:hidden; box-shadow: var(--shadow);
-    }
-    .coding-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transform:scaleX(0);transition:transform 0.4s var(--ease)}
-    .coding-card.lc::before{background:var(--gold)}
-    .coding-card.hr::before{background:var(--accent)}
-    .coding-card.gh::before{background:var(--text)}
-    .coding-card.cc::before{background:#c7452b}
-    .coding-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg); border-color: var(--gold);}
-    .coding-card:hover::before{transform:scaleX(1)}
-    .c-icon{font-size:2.8rem;margin-bottom:1.2rem; transition: transform 0.4s var(--ease);}
-    .coding-card:hover .c-icon { transform: scale(1.1) rotate(5deg); }
-    .c-name{font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;color:var(--text)}
-    .c-sub{font-size:0.8rem;color:var(--text-muted); font-weight: 500;}
-
-    /* ── CONTACT ── */
-    #contact{background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); text-align:center; overflow: hidden;}
-    .contact-inner{max-width:600px;margin:3.5rem auto 0; position: relative; z-index: 1;}
-    .contact-inner p{font-size:1.05rem;color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem}
-    .contact-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:1.2rem}
-    .c-chip{
-      display:flex;align-items:center;gap:0.7rem;padding:0.9rem 1.8rem;border-radius:4px;
-      border:1px solid var(--border);background:var(--card);text-decoration:none;
-      color:var(--text-muted);font-size:0.85rem;font-weight:600;transition:all 0.3s var(--ease);
-      box-shadow: var(--shadow);
-    }
-    .c-chip:hover{border-color:var(--gold);color:var(--gold); transform: translateY(-3px); box-shadow: var(--shadow-lg);}
-
-    /* ── FOOTER ── */
-    footer{padding:2.5rem 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--text-faint); background: #070a12;}
-    footer a{color:var(--text-faint);text-decoration:none;transition:color 0.3s var(--ease); font-weight: 500;}
-    footer a:hover{color:var(--gold)}
-    footer .f-links{display:flex;gap:2rem}
-
-    /* ── FADE-IN (LEGACY HERO) ── */
-    .fade{opacity:0;transform:translateY(20px);animation:fi .8s var(--ease) forwards}
-    @keyframes fi{to{opacity:1;transform:translateY(0)}}
-    .fade:nth-child(1){animation-delay:.1s}
-    .fade:nth-child(2){animation-delay:.25s}
-    .fade:nth-child(3){animation-delay:.4s}
-    .fade:nth-child(4){animation-delay:.55s}
-    .fade:nth-child(5){animation-delay:.7s}
-
     /* ── DYNAMIC GITHUB PROJECTS ── */
-    .ph-5{background:linear-gradient(135deg,#0d2038,#06101c); border-bottom:1px solid var(--border);}
-    .ph-6{background:linear-gradient(135deg,#242211,#121109); border-bottom:1px solid var(--border);}
-
     .gh-section-title {
       font-size: 1.8rem;
       font-weight: 500;
@@ -439,17 +449,76 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    .error-container {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
+
+    /* ── EDUCATION & CERTIFICATIONS ── */
+    #education { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.2rem;
+      transition: all 0.4s var(--ease);
+      box-shadow: var(--shadow);
     }
+    .edu-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .edu-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .edu-degree { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .edu-school { font-size: 0.95rem; color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; }
+    .edu-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+    .cert-list li { font-size: 0.9rem; color: var(--text-muted); position: relative; padding-left: 1.4rem; }
+    .cert-list li::before { content: '✔'; position: absolute; left: 0; color: var(--gold); font-size: 0.85rem; }
+
+    /* ── CODING PROFILES ── */
+    #coding{text-align:center; position: relative;}
+    .coding-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;margin-top:3.5rem}
+    .coding-card{
+      width:240px;padding:3rem 2rem;text-align:center;border:1px solid var(--border);border-radius:12px;
+      background:var(--card);text-decoration:none;color:var(--text);
+      transition:all 0.4s var(--ease);position:relative;overflow:hidden; box-shadow: var(--shadow);
+    }
+    .coding-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transform:scaleX(0);transition:transform 0.4s var(--ease)}
+    .coding-card.lc::before{background:var(--gold)}
+    .coding-card.hr::before{background:var(--accent)}
+    .coding-card.gh::before{background:var(--text)}
+    .coding-card.cc::before{background:#c7452b}
+    .coding-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg); border-color: var(--gold);}
+    .coding-card:hover::before{transform:scaleX(1)}
+    .c-icon{font-size:2.8rem;margin-bottom:1.2rem; transition: transform 0.4s var(--ease); display: flex; justify-content: center;}
+    .coding-card:hover .c-icon { transform: scale(1.1) rotate(5deg); }
+    .c-name{font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;color:var(--text)}
+    .c-sub{font-size:0.8rem;color:var(--text-muted); font-weight: 500;}
+
+    /* ── CONTACT ── */
+    #contact{background:var(--bg); border-top:1px solid var(--border); text-align:center; overflow: hidden;}
+    .contact-inner{max-width:640px;margin:3.5rem auto 0; position: relative; z-index: 1;}
+    .contact-inner p{font-size:1.05rem;color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem}
+    .contact-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:1.2rem}
+    .c-chip{
+      display:flex;align-items:center;gap:0.7rem;padding:0.9rem 1.8rem;border-radius:4px;
+      border:1px solid var(--border);background:var(--card);text-decoration:none;
+      color:var(--text-muted);font-size:0.85rem;font-weight:600;transition:all 0.3s var(--ease);
+      box-shadow: var(--shadow);
+    }
+    .c-chip:hover{border-color:var(--gold);color:var(--gold); transform: translateY(-3px); box-shadow: var(--shadow-lg);}
+
+    /* ── FOOTER ── */
+    footer{padding:2.5rem 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--text-faint); background: #070a12;}
+    footer a{color:var(--text-faint);text-decoration:none;transition:color 0.3s var(--ease); font-weight: 500;}
+    footer a:hover{color:var(--gold)}
+
+    /* ── ANIMATIONS ── */
+    .fade{opacity:0;transform:translateY(20px);animation:fi .8s var(--ease) forwards}
+    @keyframes fi{to{opacity:1;transform:translateY(0)}}
+    .fade:nth-child(1){animation-delay:.1s}
+    .fade:nth-child(2){animation-delay:.25s}
+    .fade:nth-child(3){animation-delay:.4s}
+    .fade:nth-child(4){animation-delay:.55s}
+    .fade:nth-child(5){animation-delay:.7s}
 
     @media(max-width:860px){
-      /* Nav Mobile Drawer */
-      .nav-toggle {
-        display: flex;
-      }
+      .nav-toggle { display: flex; }
       .nav-links {
         position: fixed;
         top: 0;
@@ -461,43 +530,25 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
         transition: right 0.5s var(--ease), visibility 0.5s var(--ease);
         z-index: 105;
         padding: 2rem;
         visibility: hidden;
       }
-      .nav-links.open {
-        right: 0;
-        visibility: visible;
-      }
-      .nav-links a {
-        font-size: 1.3rem;
-        letter-spacing: 0.15em;
-      }
-      nav > .open-badge {
-        display: none;
-      }
-      .mobile-only {
-        display: block;
-        margin-top: 1rem;
-      }
-      .nav-toggle.open .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-        background-color: var(--gold);
-      }
-      .nav-toggle.open .bar:nth-child(2) {
-        opacity: 0;
-      }
-      .nav-toggle.open .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-        background-color: var(--gold);
-      }
+      .nav-links.open { right: 0; visibility: visible; }
+      .nav-links a { font-size: 1.2rem; letter-spacing: 0.15em; }
+      nav > .open-badge { display: none; }
+      .mobile-only { display: block; margin-top: 1rem; }
+      .nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--gold); }
+      .nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+      .nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--gold); }
 
-      /* Hero Section */
       #hero{grid-template-columns:1fr;padding:7rem 6% 3rem;text-align:center; gap: 3rem;}
-      .hero-tag{justify-content:center}.hero-desc{margin:0 auto 2.5rem}
-      .hero-ctas{justify-content:center}.hero-links{justify-content:center}
+      .hero-tag{justify-content:center}
+      .hero-desc{margin:0 auto 2.5rem}
+      .hero-ctas{justify-content:center}
+      .hero-links{justify-content:center}
       .hero-visual{display:flex; justify-content:center; order: -1;}
       .photo-wrap{width:260px; height:312px}
       .photo-bg{top:10px; left:10px;}
@@ -508,62 +559,43 @@
         padding:0.8rem 1rem;
         width: max-content;
       }
-      .available-card:hover {
-        transform: translateX(-50%) translateY(-5px);
-      }
+      .available-card:hover { transform: translateX(-50%) translateY(-5px); }
       .av-icon{font-size:1.4rem}
       .av-text .title{font-size:0.75rem}
       .av-text .sub{font-size:0.65rem}
 
-      /* About Section */
       .about-grid{grid-template-columns:1fr; gap: 3rem;}
-      .about-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.2rem;
-      }
-      .joining-banner {
-        grid-column: 1 / -1;
-      }
-      .stat-card {
-        padding: 1rem;
-      }
+      .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+      .joining-banner { grid-column: 1 / -1; }
+      .stat-card { padding: 1rem; }
+      .edu-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .exp-card { padding: 1.5rem; }
 
-      /* Base Layout */
       section{padding:5rem 6%}
       footer{flex-direction:column;gap:1.2rem;text-align:center}
       .projects-grid { gap: 1.5rem; }
       .coding-card { width: 100%; max-width: 300px; }
-
-      /* Card padding optimizations */
-      .skill-card {
-        padding: 1.2rem;
-      }
-      .project-body {
-        padding: 1.2rem;
-      }
-      .gh-repo-card {
-        padding: 1.2rem;
-      }
     }
-</style>
+  </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Gokulraj<span>.</span></div>
+  <a href="#" class="nav-logo">Gokulraj<span>.</span></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Training</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#coding">Coding</a></li>
     <li><a href="#contact">Contact</a></li>
     <li class="mobile-only">
-      <div class="open-badge"><span class="dot"></span>ZSGS · Incubation Period</div>
+      <div class="open-badge"><span class="dot"></span>Completed ZSGS Training · Zoho</div>
     </li>
   </ul>
-  <div class="open-badge"><span class="dot"></span>ZSGS · Incubation Period</div>
+  <div class="open-badge"><span class="dot"></span>Completed ZSGS Training · Zoho</div>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -574,10 +606,10 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-text">
-    <div class="hero-tag fade">Software Engineer · ZSGS Incubation</div>
+    <div class="hero-tag fade">Java Full Stack Developer · Ex-Zoho Trainee (ZSGS)</div>
     <h1 class="fade">Hi, I'm<br><em>Gokulraj V</em></h1>
     <p class="hero-desc fade">
-      A software engineer and graduate of Sri Shakthi Institute of Engineering and Technology, currently in the <strong style="color:var(--sage-dk)">Incubation Period at ZSGS — Zoho School of Graduate Studies</strong>. I love building clean, purposeful digital solutions and sharpening my skills through competitive programming.
+      A passionate <strong style="color:var(--text)">Java Backend & Full Stack Developer</strong> and graduate of Sri Shakthi Institute of Engineering and Technology. Successfully completed intensive technical training at <strong style="color:var(--gold)">Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</strong>, specializing in Spring Boot REST APIs, Microservices, Data Structures &amp; Algorithms, Unit/Integration testing, and Docker.
     </p>
     <div class="hero-ctas fade">
       <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -588,6 +620,10 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
+      <a href="https://linkedin.com/in/gokulrajvel" target="_blank" class="hero-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0a66c2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
       <a href="https://leetcode.com/u/vgokulraj360/" target="_blank" class="hero-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffa116"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
         LeetCode
@@ -595,10 +631,6 @@
       <a href="https://www.hackerrank.com/vgokulraj360" target="_blank" class="hero-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#2ec866"><path d="M12 0c1.285 0 9.75 4.886 10.392 6 .645 1.115.645 10.885 0 12S13.287 24 12 24s-9.75-4.886-10.391-6c-.645-1.115-.645-10.885 0-12C2.25 4.886 10.715 0 12 0zm2.295 6.799c-.141 0-.258.115-.258.258v3.875H9.963V7.057a.258.258 0 0 0-.258-.258h-1.9a.258.258 0 0 0-.258.258v9.886c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V13.08h4.074v3.863c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V7.057a.258.258 0 0 0-.258-.258z"/></svg>
         HackerRank
-      </a>
-      <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" class="hero-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0a66c2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
       </a>
     </div>
   </div>
@@ -612,8 +644,8 @@
       <div class="available-card">
         <div class="av-icon">🚀</div>
         <div class="av-text">
-          <div class="title">Immediate Joiner</div>
-          <div class="sub">ZSGS · Incubation Period</div>
+          <div class="title">Completed ZSGS Training</div>
+          <div class="sub">Immediate Joiner · Open to Relocation &amp; Remote</div>
         </div>
       </div>
     </div>
@@ -627,24 +659,29 @@
   <div class="divider reveal reveal-up"></div>
   <div class="about-grid">
     <div class="about-text reveal reveal-up">
-      <p>Hi! I'm <strong>Gokulraj V</strong>, a software engineer and proud graduate of <strong>Sri Shakthi Institute of Engineering and Technology, Tirupathur</strong>. I am currently in the <strong>Incubation Period at ZSGS — Zoho School of Graduate Studies</strong>, where I am being trained and mentored intensively under one of India's top tech companies. I have a deep passion for problem-solving and writing clean, efficient code.</p>
-      <p>I actively practice competitive programming on <strong>LeetCode</strong>, <strong>HackerRank</strong>, and <strong>CodeChef</strong>, solving DSA challenges daily. During the ZSGS incubation period, I am deepening my expertise in software engineering under direct mentorship from Zoho engineers.</p>
-      <p>I am a quick learner, a team player, and driven by curiosity. Being selected for <strong>ZSGS</strong> and progressing through the incubation period reflects my dedication to excellence in software engineering.</p>
+      <p>Hi! I'm <strong>Gokulraj V</strong>, a Computer Science Engineering graduate (2025) from <strong>Sri Shakthi Institute of Engineering and Technology, Tirupathur</strong>, passionate about building high-quality, reliable enterprise software.</p>
+      <p>I have successfully completed intensive technical training at <strong>Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</strong>, specializing in Advanced Java, Data Structures &amp; Algorithms (DSA), RESTful Microservices, and rigorous Unit, Functional, and Integration testing across complex multi-threaded project scenarios.</p>
+      <p>Active competitive programmer with <strong>150+ LeetCode problems solved</strong>, 200+ GitHub commits, and an official <strong>GitHub "Pull Shark"</strong> achievement badge. Experienced in containerizing applications with Docker, managing MySQL databases, and building CI/CD pipelines.</p>
       <div class="info-pills">
         <span class="pill">📍 Tirupathur, Tamil Nadu</span>
-        <span class="pill">🎓 ZSGS · Incubation Period</span>
-        <span class="pill">🏢 Zoho · In Training</span>
-        <span class="pill">🌐 Open Source Enthusiast</span>
+        <span class="pill">🎓 B.E. CSE (2025) · 7.19 CGPA</span>
+        <span class="pill">🏢 Zoho (ZSGS) · Completed Training</span>
+        <span class="pill">⚡ Immediate Joiner</span>
+        <span class="pill">🌍 Open to Relocation &amp; Remote</span>
       </div>
     </div>
     <div class="about-stats">
       <div class="stat-card reveal reveal-up">
-        <div class="num">∞</div>
-        <div class="lbl">Problems solved &amp; counting</div>
+        <div class="num">150+</div>
+        <div class="lbl">LeetCode DSA Problems Solved</div>
       </div>
       <div class="stat-card reveal reveal-up">
-        <div class="num">3+</div>
-        <div class="lbl">Coding platforms active on</div>
+        <div class="num">200+</div>
+        <div class="lbl">GitHub Commits Across Repositories</div>
+      </div>
+      <div class="stat-card reveal reveal-up">
+        <div class="num">60+</div>
+        <div class="lbl">Daily Commits in Agile Workflows</div>
       </div>
       <div class="stat-card reveal reveal-up">
         <div class="num">🏆</div>
@@ -653,18 +690,42 @@
       <div class="joining-banner reveal reveal-up">
         <div class="icon">✅</div>
         <div class="text">
-          <div class="t1">In Incubation · ZSGS, Zoho</div>
-          <div class="t2">Ready for full-time roles & internships</div>
+          <div class="t1">Completed Training at Zoho (ZSGS)</div>
+          <div class="t2">Ready for full-time Java Backend & Full Stack Roles</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TRAINING & EXPERIENCE -->
+<section id="experience">
+  <div class="section-label reveal reveal-up">02 · Experience &amp; Training</div>
+  <h2 class="reveal reveal-up">Technical Training &amp; Experience</h2>
+  <div class="divider reveal reveal-up"></div>
+  <div class="exp-card reveal reveal-up">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Technical Trainee – Java Full Stack Development</div>
+        <div class="exp-company">Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</div>
+      </div>
+      <div class="exp-date">Jan 2026 – Jun 2026 · Completed</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Completed intensive technical training in Data Structures, Algorithms (DSA), and Advanced Java to build highly optimized, testable enterprise applications.</li>
+      <li>Conducted rigorous Unit, Functional, and Integration testing alongside root-cause analysis and thread-safe practices across real-time multi-threaded project scenarios.</li>
+      <li>Designed, built, and integrated secure RESTful APIs following industry-standard Microservices and Event-Driven architectural patterns.</li>
+      <li>Utilized Docker environments to isolate development setups, ensuring consistency between local execution and test automation deployments within a CI/CD pipeline.</li>
+      <li>Collaborated in an Agile methodology environment, maintaining a rigorous deployment workflow with 60+ daily GitHub commits and utilizing Git branching strategies for clean version control.</li>
+      <li>Prepared exhaustive technical documentation detailing architectural diagrams, test strategies, workflow pipelines, and system API endpoints to ensure system reliability.</li>
+    </ul>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label reveal reveal-up">02 · Skills</div>
-  <h2 class="reveal reveal-up">What I work with</h2>
+  <div class="section-label reveal reveal-up">03 · Skills</div>
+  <h2 class="reveal reveal-up">Technical Proficiency</h2>
   <div class="divider reveal reveal-up"></div>
   <div class="skills-grid">
     <div class="skill-card reveal reveal-up">
@@ -673,59 +734,86 @@
       <div class="tags"><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div>
     </div>
     <div class="skill-card reveal reveal-up">
+      <div class="skill-icon">🧪</div>
+      <div class="skill-name">Testing &amp; QA</div>
+      <div class="tags"><span class="tag">JUnit</span><span class="tag">Mockito</span><span class="tag">Postman (API)</span><span class="tag">Integration Testing</span><span class="tag">Code Coverage</span></div>
+    </div>
+    <div class="skill-card reveal reveal-up">
+      <div class="skill-icon">🌱</div>
+      <div class="skill-name">Frameworks &amp; ORM</div>
+      <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Spring Data JPA</span><span class="tag">Spring Security</span><span class="tag">Maven</span></div>
+    </div>
+    <div class="skill-card reveal reveal-up">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-name">Backend &amp; Architecture</div>
+      <div class="tags"><span class="tag">RESTful APIs</span><span class="tag">Microservices</span><span class="tag">N-Tier</span><span class="tag">JDBC</span><span class="tag">Event-Driven</span><span class="tag">DTO Pattern</span><span class="tag">RBAC</span></div>
+    </div>
+    <div class="skill-card reveal reveal-up">
       <div class="skill-icon">🌐</div>
-      <div class="skill-name">Web Development</div>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-    </div>
-    <div class="skill-card reveal reveal-up">
-      <div class="skill-icon">🏗️</div>
-      <div class="skill-name">Principles & Patterns</div>
-      <div class="tags"><span class="tag">OOP</span><span class="tag">MVC</span><span class="tag">Encapsulation</span><span class="tag">SOLID</span></div>
-    </div>
-    <div class="skill-card reveal reveal-up">
-      <div class="skill-icon">🧠</div>
-      <div class="skill-name">Data Structures & Algorithms</div>
-      <div class="tags"><span class="tag">Arrays</span><span class="tag">Linked Lists</span><span class="tag">Trees</span><span class="tag">Graphs</span><span class="tag">DP</span></div>
+      <div class="skill-name">Frontend</div>
+      <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Vanilla JavaScript</span><span class="tag">DOM Manipulation</span><span class="tag">CORS</span></div>
     </div>
     <div class="skill-card reveal reveal-up">
       <div class="skill-icon">🗄️</div>
-      <div class="skill-name">Databases</div>
-      <div class="tags"><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
+      <div class="skill-name">Databases &amp; Security</div>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">JWT</span><span class="tag">BCrypt</span><span class="tag">SHA-256 Hashing</span></div>
     </div>
     <div class="skill-card reveal reveal-up">
-      <div class="skill-icon">🛠️</div>
-      <div class="skill-name">Tools & Platforms</div>
-      <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">IntelliJ</span><span class="tag">Linux</span></div>
+      <div class="skill-icon">🐳</div>
+      <div class="skill-name">DevOps &amp; Tools</div>
+      <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Docker</span><span class="tag">Linux (Ubuntu)</span><span class="tag">MySQL Workbench</span><span class="tag">CI/CD</span><span class="tag">Agile</span></div>
+    </div>
+    <div class="skill-card reveal reveal-up">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-name">Data Structures &amp; Algorithms</div>
+      <div class="tags"><span class="tag">Arrays</span><span class="tag">Strings</span><span class="tag">HashMaps</span><span class="tag">Recursion</span><span class="tag">Dynamic Programming</span></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label reveal reveal-up">03 · Projects</div>
-  <h2 class="reveal reveal-up">Things I've built</h2>
+  <div class="section-label reveal reveal-up">04 · Projects</div>
+  <h2 class="reveal reveal-up">Featured Projects</h2>
   <div class="divider reveal reveal-up"></div>
   
   <div class="projects-grid">
-    <!-- Project 1: GMart Supermarket Management -->
+    <!-- Project 1: GMart -->
     <div class="project-card reveal reveal-up">
       <div class="project-header ph-1">🛒</div>
       <div class="project-body">
-        <div class="project-title">GMart Supermarket Management</div>
-        <p class="project-desc">A console-based Supermarket Management System featuring role-based access control, inventory tracking, Point-of-Sale billing, GST calculations, and supplier auditing.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">POS</span><span class="tag">Console App</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/Gmart" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        <div>
+          <div class="project-title">GMart – Inventory &amp; Billing System</div>
+          <p class="project-desc">A completely decoupled, Microservices-based enterprise system featuring a robust Spring Boot REST API backend designed for high reliability, performance, and testability.</p>
+          <ul class="project-bullets">
+            <li>Implemented secure Role-Based Access Control (RBAC) supporting 4 distinct organizational roles.</li>
+            <li>Designed normalized MySQL database schema with 6 JPA entities establishing transactional integrity.</li>
+            <li>Containerized the entire application ecosystem using Docker to support CI/CD pipelines.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">JUnit</span><span class="tag">CI/CD</span></div>
+          <div class="project-links"><a href="https://github.com/gokulrajvel/Gmart_Java_Fullstack" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        </div>
       </div>
     </div>
 
-    <!-- Project 2: GMart Java Fullstack -->
+    <!-- Project 2: Redis Cluster Lifecycle -->
     <div class="project-card reveal reveal-up">
-      <div class="project-header ph-2">🛍️</div>
+      <div class="project-header ph-5">🔄</div>
       <div class="project-body">
-        <div class="project-title">GMart Java Fullstack</div>
-        <p class="project-desc">A full-stack web implementation of the GMart Supermarket Management System, connecting a robust Java backend with an interactive and responsive web interface.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">Fullstack</span><span class="tag">Web Application</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/Gmart_Java_Fullstack" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        <div>
+          <div class="project-title">Redis Cluster Lifecycle Architecture</div>
+          <p class="project-desc">Engineered a highly available, distributed Redis Cluster designed to handle data sharding, hash slotting, and automated state replication across virtual environments.</p>
+          <ul class="project-bullets">
+            <li>Automated cluster creation and master-replica mapping using custom Bash orchestration scripts (ARA).</li>
+            <li>Configured failover routines and Docker volume mounts to guarantee zero downtime during master node crashes.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:.9rem"><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Bash Scripting</span><span class="tag">Linux</span><span class="tag">Network Orchestration</span></div>
+          <div class="project-links"><a href="https://github.com/gokulrajvel" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        </div>
       </div>
     </div>
 
@@ -733,10 +821,18 @@
     <div class="project-card reveal reveal-up">
       <div class="project-header ph-3">🏢</div>
       <div class="project-body">
-        <div class="project-title">SIET Placement Management</div>
-        <p class="project-desc">A Java management system for tracking student placements, featuring student/teacher portals, recruiter database management, and interview scheduling.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">Management System</span><span class="tag">Console App</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/SIET_Placement_Management" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        <div>
+          <div class="project-title">SIET Placement Management System</div>
+          <p class="project-desc">High-performance dual-portal console application (Student &amp; Faculty environments) leveraging Model-View-Presenter (MVP) and Data Transfer Object (DTO) design patterns.</p>
+          <ul class="project-bullets">
+            <li>Integrated relational MySQL backend using native Java Database Connectivity (JDBC).</li>
+            <li>Built custom startup automation routines for database table initialization and data consistency.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">JDBC</span><span class="tag">MVP</span><span class="tag">DTO Pattern</span><span class="tag">Agile</span></div>
+          <div class="project-links"><a href="https://github.com/gokulrajvel/SIET_Placement_Management" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        </div>
       </div>
     </div>
 
@@ -744,53 +840,86 @@
     <div class="project-card reveal reveal-up">
       <div class="project-header ph-4">🏧</div>
       <div class="project-body">
-        <div class="project-title">Bank ATM Simulator</div>
-        <p class="project-desc">An interactive web-based Bank ATM simulator utilizing vanilla JavaScript and OOP principles. Supports PIN validation, transactions, and state management.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">OOP</span><span class="tag">DOM Manipulation</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/Bank_ATM" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        <div>
+          <div class="project-title">Bank ATM Simulator</div>
+          <p class="project-desc">Web-based ATM simulator featuring PIN verification, secure withdrawal processing, balance inquiry, and real-time DOM feedback using vanilla JavaScript.</p>
+          <ul class="project-bullets">
+            <li>Applied advanced Object-Oriented Programming (OOP) principles in JavaScript.</li>
+            <li>Maintained high code coverage standards for transaction logic and security pins.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:.9rem"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">OOP</span><span class="tag">DOM</span></div>
+          <div class="project-links"><a href="https://github.com/gokulrajvel/Bank_ATM" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        </div>
       </div>
     </div>
 
     <!-- Project 5: Problem Solving & DSA -->
     <div class="project-card reveal reveal-up">
-      <div class="project-header ph-5">⚙️</div>
+      <div class="project-header ph-2">⚙️</div>
       <div class="project-body">
-        <div class="project-title">Problem Solving & DSA</div>
-        <p class="project-desc">A curated collection of LeetCode and HackerRank solutions written in Java. Structured by topics like arrays, strings, trees, dynamic programming, and algorithms.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">DSA</span><span class="tag">Algorithms</span><span class="tag">Problem Solving</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/problem-solving" target="_blank" class="p-link">↗ View on GitHub</a></div>
-      </div>
-    </div>
-
-    <!-- Project 6: Mobile Application -->
-    <div class="project-card reveal reveal-up">
-      <div class="project-header ph-6">📱</div>
-      <div class="project-body">
-        <div class="project-title">Mobile Application</div>
-        <p class="project-desc">An Android mobile application developed in Kotlin, demonstrating core mobile architecture, user interface components, and responsive views.</p>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Kotlin</span><span class="tag">Android SDK</span><span class="tag">Mobile Development</span></div>
-        <div class="project-links"><a href="https://github.com/gokulrajvel/MobileApp" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        <div>
+          <div class="project-title">Problem Solving &amp; DSA Repository</div>
+          <p class="project-desc">Curated collection of 150+ verified Data Structures and Algorithms solutions in Java, covering Arrays, Strings, HashMaps, Recursion, Trees, and Dynamic Programming.</p>
+          <ul class="project-bullets">
+            <li>Includes optimal solutions for LeetCode and HackerRank challenges.</li>
+            <li>Maintained disciplined version control with 200+ commits across GitHub repositories.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">DSA</span><span class="tag">Algorithms</span><span class="tag">LeetCode</span><span class="tag">HackerRank</span></div>
+          <div class="project-links"><a href="https://github.com/gokulrajvel/problem-solving" target="_blank" class="p-link">↗ View on GitHub</a></div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Dynamic GitHub Repositories Section -->
-  <h3 class="gh-section-title reveal reveal-up">More GitHub Repositories</h3>
+  <h3 class="gh-section-title reveal reveal-up">More Repositories on GitHub</h3>
   <div class="gh-repos-grid" id="github-repos-container">
     <div class="loader-container" id="gh-loader">
       <div class="spinner"></div>
-      <p>Fetching repositories from GitHub...</p>
+      <p>Fetching public repositories from GitHub...</p>
     </div>
   </div>
 
   <div style="text-align:center; margin-top:4rem;" class="reveal reveal-up">
-    <a href="https://github.com/gokulrajvel?tab=repositories" target="_blank" class="btn btn-outline">Explore All on GitHub</a>
+    <a href="https://github.com/gokulrajvel?tab=repositories" target="_blank" class="btn btn-outline">Explore All Repositories on GitHub</a>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTIFICATIONS -->
+<section id="education">
+  <div class="section-label reveal reveal-up">05 · Education</div>
+  <h2 class="reveal reveal-up">Education &amp; Certifications</h2>
+  <div class="divider reveal reveal-up"></div>
+  <div class="edu-grid">
+    <div class="edu-card reveal reveal-up">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">B.E. in Computer Science &amp; Engineering</div>
+      <div class="edu-school">Sri Shakthi Institute of Engineering &amp; Technology, Coimbatore</div>
+      <div class="edu-meta">Oct 2021 – May 2025 · CGPA: 7.19 / 10.0 (Anna University Affiliated)</div>
+      <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.7;">Focused on Core Computer Science, Software Engineering principles, Database Management, and Object-Oriented Programming.</p>
+    </div>
+    <div class="edu-card reveal reveal-up">
+      <div class="edu-icon">📜</div>
+      <div class="edu-degree">Certifications &amp; Achievements</div>
+      <div class="edu-school">Verified Technical Credentials</div>
+      <ul class="cert-list">
+        <li><strong>Java Programming Masterclass</strong> – Udemy</li>
+        <li><strong>HTML5, CSS3 &amp; JavaScript for Beginners</strong> – Udemy</li>
+        <li><strong>SQL (Intermediate &amp; Basic)</strong> – HackerRank</li>
+        <li><strong>GitHub Pull Shark Achievement Badge</strong> – GitHub</li>
+        <li><strong>Languages Known:</strong> English (Professional), Tamil (Native)</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- CODING PROFILES -->
 <section id="coding">
-  <div class="section-label reveal reveal-up" style="justify-content:center;">04 · Coding Profiles</div>
+  <div class="section-label reveal reveal-up" style="justify-content:center;">06 · Coding Profiles</div>
   <h2 class="reveal reveal-up">Find me on</h2>
   <div class="divider reveal reveal-up"></div>
   <div class="coding-grid">
@@ -799,21 +928,21 @@
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffa116"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
       </div>
       <div class="c-name">LeetCode</div>
-      <div class="c-sub">vgokulraj360</div>
+      <div class="c-sub">150+ Solved · vgokulraj360</div>
     </a>
     <a href="https://www.hackerrank.com/vgokulraj360" target="_blank" class="coding-card hr reveal reveal-up">
       <div class="c-icon">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#2ec866"><path d="M12 0c1.285 0 9.75 4.886 10.392 6 .645 1.115.645 10.885 0 12S13.287 24 12 24s-9.75-4.886-10.391-6c-.645-1.115-.645-10.885 0-12C2.25 4.886 10.715 0 12 0zm2.295 6.799c-.141 0-.258.115-.258.258v3.875H9.963V7.057a.258.258 0 0 0-.258-.258h-1.9a.258.258 0 0 0-.258.258v9.886c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V13.08h4.074v3.863c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V7.057a.258.258 0 0 0-.258-.258z"/></svg>
       </div>
       <div class="c-name">HackerRank</div>
-      <div class="c-sub">vgokulraj360</div>
+      <div class="c-sub">SQL Certified · vgokulraj360</div>
     </a>
     <a href="https://github.com/gokulrajvel" target="_blank" class="coding-card gh reveal reveal-up">
       <div class="c-icon">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       </div>
       <div class="c-name">GitHub</div>
-      <div class="c-sub">gokulrajvel</div>
+      <div class="c-sub">200+ Commits · gokulrajvel</div>
     </a>
     <a href="https://www.codechef.com/users/gang_spice_09" target="_blank" class="coding-card cc reveal reveal-up">
       <div class="c-icon">
@@ -827,17 +956,21 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" style="justify-content:center;">05 · Contact</div>
-  <h2>Let's work together</h2>
+  <div class="section-label" style="justify-content:center;">07 · Contact</div>
+  <h2>Let's connect &amp; work together</h2>
   <div class="divider"></div>
   <div class="contact-inner">
-    <p>I'm actively seeking entry-level opportunities and internships. I'm an <strong style="color:var(--sage-dk)">immediate joiner</strong> — no notice period, ready from day one. Reach out anytime!</p>
+    <p>I am actively seeking entry-level <strong style="color:var(--text)">Java Backend Developer, Full Stack, or SDET</strong> roles. I am an <strong style="color:var(--gold)">immediate joiner</strong> — open to relocation and remote work across India and globally. Reach out anytime!</p>
     <div class="contact-chips">
       <a href="mailto:vgokulraj360@gmail.com" class="c-chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         vgokulraj360@gmail.com
       </a>
-      <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" class="c-chip">
+      <a href="tel:+918610602571" class="c-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 8610602571
+      </a>
+      <a href="https://linkedin.com/in/gokulrajvel" target="_blank" class="c-chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#0a66c2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
@@ -853,17 +986,14 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#2ec866"><path d="M12 0c1.285 0 9.75 4.886 10.392 6 .645 1.115.645 10.885 0 12S13.287 24 12 24s-9.75-4.886-10.391-6c-.645-1.115-.645-10.885 0-12C2.25 4.886 10.715 0 12 0zm2.295 6.799c-.141 0-.258.115-.258.258v3.875H9.963V7.057a.258.258 0 0 0-.258-.258h-1.9a.258.258 0 0 0-.258.258v9.886c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V13.08h4.074v3.863c0 .143.115.258.258.258h1.9a.258.258 0 0 0 .258-.258V7.057a.258.258 0 0 0-.258-.258z"/></svg>
         HackerRank
       </a>
-      <a href="https://www.codechef.com/users/gang_spice_09" target="_blank" class="c-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c7452b"><path d="M11.2 0C5.116 0 .101 4.08.101 9.116c0 2.658 1.338 5.05 3.49 6.72-.21.646-.407 1.298-.602 1.943-.274.912-.548 1.825-.88 2.72a18.86 18.86 0 0 1-.636 1.498c-.154.32-.32.636-.498.943.606-.193 1.217-.385 1.824-.583a57.74 57.74 0 0 0 3.513-1.368c.443.116.893.213 1.352.289C9.008 21.76 10.097 22 11.2 22c6.084 0 11.1-4.08 11.1-9.116C22.3 7.847 17.284 0 11.2 0z"/></svg>
-        CodeChef
-      </a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Gokulraj V · Software Engineer · ZSGS Incubation, Zoho</span>
+  <span>© 2026 Gokulraj V · Java Backend &amp; Full Stack Developer · Ex-Zoho Trainee (ZSGS)</span>
+  <span>Tirupathur, Tamil Nadu, India</span>
 </footer>
 
 <script>
@@ -877,7 +1007,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
-      // Unobserve after animating in
       observer.unobserve(entry.target);
     }
   });
@@ -910,7 +1039,6 @@ if (navToggle && navLinks) {
     document.body.classList.toggle('nav-open', isOpen);
   });
 
-  // Close mobile menu when links are clicked
   const menuLinks = navLinks.querySelectorAll('a');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -929,8 +1057,9 @@ const FEATURED_REPOS = [
   'siet_placement_management',
   'bank_atm',
   'problem-solving',
+  'redis-cluster',
   'mobileapp',
-  'gokulrajvel.github.io' // exclude portfolio itself
+  'gokulrajvel.github.io'
 ];
 
 const LANG_COLORS = {
@@ -955,20 +1084,17 @@ async function fetchGitHubRepos() {
     }
     const repos = await response.json();
     
-    // Sort by pushed_at desc
     repos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
     
-    // Filter out featured and forks
     const filteredRepos = repos.filter(repo => {
       const nameLower = repo.name.toLowerCase();
       return !FEATURED_REPOS.includes(nameLower) && !repo.fork;
     });
     
-    // Clear loader
     loader.style.display = 'none';
     
     if (filteredRepos.length === 0) {
-      container.innerHTML = '<p style="text-align:center; color:var(--ink-soft); grid-column: 1/-1; padding: 2rem 0;">No other public repositories found.</p>';
+      container.innerHTML = '<p style="text-align:center; color:var(--text-muted); grid-column: 1/-1; padding: 2rem 0;">Explore all projects directly on GitHub profile.</p>';
       return;
     }
     
@@ -979,17 +1105,16 @@ async function fetchGitHubRepos() {
       const card = document.createElement('div');
       card.className = 'gh-repo-card reveal reveal-up';
       
-      // Setup HTML
       card.innerHTML = `
         <div class="gh-repo-top">
           <div class="gh-repo-icon-row">
             <span style="font-size: 1.5rem;">📁</span>
-            <a href="${repo.html_url}" target="_blank" style="color: var(--sage-dk); text-decoration: none;">
+            <a href="${repo.html_url}" target="_blank" style="color: var(--gold); text-decoration: none;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="gh-repo-title">${repo.name.replace(/_/g, ' ').replace(/-/g, ' ')}</div>
-          <p class="gh-repo-desc">${repo.description || 'No description provided. Click the link to view the code on GitHub.'}</p>
+          <p class="gh-repo-desc">${repo.description || 'No description provided. Click to view on GitHub.'}</p>
         </div>
         <div class="gh-repo-meta">
           <div class="gh-repo-lang">
@@ -1013,28 +1138,25 @@ async function fetchGitHubRepos() {
       `;
       
       container.appendChild(card);
-      
-      // Observe the newly created card for scroll reveal
       observer.observe(card);
     });
   } catch (error) {
     console.error('Error fetching repos:', error);
     loader.style.display = 'none';
     container.innerHTML = `
-      <div class="error-container" style="grid-column: 1/-1;">
-        <p>Couldn't load repositories directly from GitHub right now.</p>
+      <div class="error-container" style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+        <p style="color:var(--text-muted)">Couldn't load repositories directly from GitHub right now.</p>
         <a href="https://github.com/${GITHUB_USERNAME}?tab=repositories" target="_blank" class="btn btn-outline" style="margin-top: 1rem;">View all on GitHub</a>
       </div>
     `;
   }
 }
 
-// Call on load
 fetchGitHubRepos();
 
 // 3D Parallax Tilt Effect
 function init3DTilt() {
-  const cards = document.querySelectorAll('.project-card, .gh-repo-card, .coding-card, .photo-wrap');
+  const cards = document.querySelectorAll('.project-card, .gh-repo-card, .coding-card, .photo-wrap, .stat-card, .edu-card, .exp-card');
   
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -1045,11 +1167,10 @@ function init3DTilt() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      // Calculate tilt angles (max tilt 10 degrees)
-      const tiltX = ((centerY - y) / centerY) * 10;
-      const tiltY = ((x - centerX) / centerX) * -10; // Reversed Y for natural tilt
+      const tiltX = ((centerY - y) / centerY) * 6;
+      const tiltY = ((x - centerX) / centerX) * -6;
       
-      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.01, 1.01, 1.01)`;
     });
     
     card.addEventListener('mouseleave', () => {
@@ -1058,13 +1179,12 @@ function init3DTilt() {
   });
 }
 
-// Initialize tilt on load
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
   init3DTilt();
 } else {
   document.addEventListener('DOMContentLoaded', init3DTilt);
 }
-
 </script>
 
-        </body>
+</body>
+</html>
