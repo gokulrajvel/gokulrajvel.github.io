@@ -44,7 +44,7 @@
 | :--- | :--- | :--- |
 | [**GMart Decoupled**](https://github.com/gokulrajvel/Gmart_Java_Fullstack) | Java, Spring Boot, MySQL, Docker, Vite JS | **[Live Web App](https://gmart-inventory.onrender.com/index.html)**: Enterprise decoupled inventory & billing system with REST API, Nginx SPA frontend, and multi-role RBAC. *(Demo logins below)* |
 | [**Redis Cluster Lifecycle**](https://github.com/gokulrajvel/Redis-Cluster-Lifecycle) | Python, Ansible, Redis, Docker, Podman, Bash | CLI orchestration tool (`redis-tool`) & playbooks for automated provisioning, seeding, scaling, and zero-downtime rolling upgrades. |
-| [**Saravana Engineering**](https://github.com/gokulrajvel/Saravana-Engineering) | HTML5, CSS3, JavaScript, Responsive UI | **[Live Website](https://gokulrajvel.github.io/Saravana-Engineering/)**: **Freelance Client Project:** Commercial website and machinery service catalog built for Saravana Engineering industrial fabrication. |
+| [**Saravana Engineering**](https://github.com/gokulrajvel/Saravana-Engineering) | HTML5, CSS3, JavaScript, Responsive UI | **[Live Website](https://saravana-engineering.netlify.app/)**: **Freelance Client Project:** Commercial website and machinery service catalog built for Saravana Engineering industrial fabrication. |
 | [**Finance OS**](https://github.com/gokulrajvel/finance-os) | Kotlin, Android Studio, Gemini API, Room DB | Native Android financial dashboard with AI bank statement parser, automated categorization, and debt payoff tracker. |
 | [**GMart Inventory Mobile**](https://github.com/gokulrajvel/MobileApp) | Kotlin, Android, Barcode Scanner, Room DB, Gemini API | Mobile inventory companion with camera barcode scanning, real-time stock alerts, and local Room caching. |
 | [**SIET Placement Management**](https://github.com/gokulrajvel/SIET_Placement_Management) | Java, MySQL, JDBC, MVP Pattern, DTOs | Dual-portal campus placement management application for students and faculty coordinators. |
@@ -73,13 +73,13 @@
 
 ### **Freelance Web Developer** — Saravana Engineering
 * **Client Domain:** Industrial Engineering, Machinery Fabrication & Custom Tooling
-* **Live Website:** [gokulrajvel.github.io/Saravana-Engineering](https://gokulrajvel.github.io/Saravana-Engineering/)
+* **Live Website:** [saravana-engineering.netlify.app](https://saravana-engineering.netlify.app/)
 * **GitHub Repository:** [github.com/gokulrajvel/Saravana-Engineering](https://github.com/gokulrajvel/Saravana-Engineering)
 * **Scope & Deliverables:**
   - Directly consulted with client stakeholders to define branding, service showcase, and product portfolio structure.
   - Designed and deployed a responsive, mobile-first commercial website with modern CSS3 and accessible HTML5.
   - Implemented interactive enquiry forms to drive inbound customer lead generation.
-  - Production deployment hosted on GitHub Pages with continuous delivery.
+  - Production deployment hosted on Netlify with continuous delivery.
 
 ---
 
