@@ -345,7 +345,111 @@
       margin-bottom: 0.75rem;
     }
 
-    /* ── PROJECT CATEGORY FILTERS ── */
+        /* ── DEMO CREDENTIALS BOX (GMart) ── */
+    .live-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .demo-creds-container {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.2rem 0;
+      transition: all 0.3s var(--ease);
+    }
+    .demo-creds-container:hover {
+      border-color: rgba(96, 165, 250, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .demo-creds-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .demo-creds-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-lt);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .live-ext-link {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #34d399;
+      text-decoration: none;
+      transition: all 0.2s var(--ease);
+    }
+    .live-ext-link:hover {
+      text-decoration: underline;
+      color: var(--text);
+    }
+    .demo-role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .demo-role-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.75rem;
+      transition: all 0.2s var(--ease);
+    }
+    .demo-role-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .role-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-bottom: 0.35rem;
+    }
+    .badge-admin { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-warehouse { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-billing { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-purchasing { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .demo-cred-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+    .demo-cred-row code {
+      color: var(--text);
+      font-family: monospace;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      user-select: all;
+    }
+
+/* ── PROJECT CATEGORY FILTERS ── */
     .project-filters {
       display: flex;
       justify-content: center;
@@ -959,6 +1063,7 @@
       <li>Designed and built custom, mobile-responsive web pages showcasing industrial machinery fabrication, technical service capabilities, and client enquiry touchpoints.</li>
       <li>Engineered clean, accessible semantic HTML5, modern CSS3 styling, and vanilla JavaScript interactions ensuring fast page loads and cross-browser consistency.</li>
       <li>Maintained complete project lifecycle management through GitHub version control, client feedback iterations, and production-ready deliverables.</li>
+      <li>Deployed and launched the live commercial client website at <a href="https://gokulrajvel.github.io/Saravana-Engineering/" target="_blank" style="color: #34d399; text-decoration: none; font-weight: 600;">gokulrajvel.github.io/Saravana-Engineering ↗</a> for customer machinery showcases and inbound quotation inquiries.</li>
     </ul>
   </div>
 </section>
@@ -1034,6 +1139,7 @@
       <div class="project-header ph-1">🛒</div>
       <div class="project-body">
         <div>
+          <div class="live-status-badge"><span class="live-dot"></span> Live on Render</div>
           <div class="project-title">GMart Decoupled – Inventory &amp; Billing System</div>
           <p class="project-desc">A completely decoupled enterprise system featuring a standalone Spring Boot REST API backend, Vite JS frontend, and multi-container Docker deployment designed for high reliability, performance, and testability.</p>
           <ul class="project-bullets">
@@ -1041,10 +1147,58 @@
             <li>Designed normalized MySQL database schema with automated JPA transactions and GST calculations.</li>
             <li>Containerized the entire application ecosystem using Docker Compose supporting CI/CD pipelines.</li>
           </ul>
+
+          <!-- Live Deployment & Demo Credentials Box -->
+          <div class="demo-creds-container">
+            <div class="demo-creds-header">
+              <span class="demo-creds-title">
+                <span class="live-dot"></span> Live Demo Credentials (RBAC)
+              </span>
+              <a href="https://gmart-inventory.onrender.com/index.html" target="_blank" class="live-ext-link">Open App ↗</a>
+            </div>
+            <div class="demo-role-grid">
+              <div class="demo-role-card">
+                <span class="role-badge badge-admin">Admin</span>
+                <div class="demo-cred-row"><span>ID:</span><code>gokulraj</code></div>
+                <div class="demo-cred-row"><span>PW:</span><code>Gokulraj@2</code></div>
+              </div>
+              <div class="demo-role-card">
+                <span class="role-badge badge-warehouse">Warehouse</span>
+                <div class="demo-cred-row"><span>ID:</span><code>poovarasan</code></div>
+                <div class="demo-cred-row"><span>PW:</span><code>Poovarasan123</code></div>
+              </div>
+              <div class="demo-role-card">
+                <span class="role-badge badge-billing">Billing Staff</span>
+                <div class="demo-cred-row"><span>ID:</span><code>sunil</code></div>
+                <div class="demo-cred-row"><span>PW:</span><code>Sunil123</code></div>
+              </div>
+              <div class="demo-role-card">
+                <span class="role-badge badge-purchasing">Purchasing Mgr</span>
+                <div class="demo-cred-row"><span>ID:</span><code>sanjay</code></div>
+                <div class="demo-cred-row"><span>PW:</span><code>Sanjay@123</code></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <div class="tags" style="margin-bottom:.9rem"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">Vite JS</span><span class="tag">REST API</span><span class="tag">RBAC</span></div>
-          <div class="project-links"><a href="https://github.com/gokulrajvel/Gmart_Java_Fullstack" target="_blank" class="p-link">↗ View on GitHub</a></div>
+          <div class="tags" style="margin-bottom:.9rem">
+            <span class="tag" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">Live on Render</span>
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Vite JS</span>
+            <span class="tag">REST API</span>
+            <span class="tag">RBAC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://gmart-inventory.onrender.com/index.html" target="_blank" class="p-link" style="color: #34d399; font-weight: 700;">
+              <span class="live-dot" style="margin-right: 4px;"></span> ↗ Launch Live App
+            </a>
+            <a href="https://github.com/gokulrajvel/Gmart_Java_Fullstack" target="_blank" class="p-link">
+              ↗ View on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1074,7 +1228,10 @@
       <div class="project-header ph-10">🏭</div>
       <div class="project-body">
         <div>
-          <div class="freelance-badge">💼 Freelance Client Project</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+            <div class="live-status-badge" style="margin-bottom: 0;"><span class="live-dot"></span> Live on GitHub Pages</div>
+            <div class="freelance-badge" style="margin-bottom: 0;">💼 Freelance Client Project</div>
+          </div>
           <div class="project-title">Saravana Engineering – Client Web Portal</div>
           <p class="project-desc">Commercial freelance web development project executed for Saravana Engineering, an industrial engineering and machine fabrication firm, designed to showcase product offerings, manufacturing capabilities, and capture customer enquiries.</p>
           <ul class="project-bullets">
@@ -1085,6 +1242,7 @@
         </div>
         <div>
           <div class="tags" style="margin-bottom:.9rem">
+            <span class="tag" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">Live Client Site</span>
             <span class="tag" style="border-color: rgba(52, 211, 153, 0.4); color: #34d399;">Freelance Project</span>
             <span class="tag">HTML5</span>
             <span class="tag">CSS3</span>
@@ -1092,7 +1250,14 @@
             <span class="tag">Responsive UI</span>
             <span class="tag">Client Solution</span>
           </div>
-          <div class="project-links"><a href="https://github.com/gokulrajvel/Saravana-Engineering" target="_blank" class="p-link">↗ View on GitHub</a></div>
+          <div class="project-links">
+            <a href="https://gokulrajvel.github.io/Saravana-Engineering/" target="_blank" class="p-link" style="color: #34d399; font-weight: 700;">
+              <span class="live-dot" style="margin-right: 4px;"></span> ↗ Launch Live Website
+            </a>
+            <a href="https://github.com/gokulrajvel/Saravana-Engineering" target="_blank" class="p-link">
+              ↗ View on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
