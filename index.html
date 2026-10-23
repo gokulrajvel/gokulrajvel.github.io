@@ -146,23 +146,24 @@
     /* ── 3D FLOATING TECH CHIPS IN HERO ── */
     .float-3d-chip {
       position: absolute;
-      padding: 0.55rem 1.05rem;
+      padding: 0.55rem 1.15rem;
       border-radius: 30px;
-      background: rgba(14, 21, 37, 0.88);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(194, 152, 91, 0.35);
-      color: var(--text);
-      font-size: 0.72rem;
+      border: 1px solid rgba(194, 152, 91, 0.4);
+      color: #f8fafc;
+      font-size: 0.75rem;
       font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      gap: 0.5rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
       z-index: 4;
       transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
       cursor: default;
       user-select: none;
+      white-space: nowrap;
     }
     .float-3d-chip span {
       font-size: 0.95rem;
@@ -174,23 +175,23 @@
       transform: scale(1.08) translateZ(35px) !important;
     }
     .chip-1 {
-      top: -15px;
-      right: -25px;
+      top: -28px;
+      right: -32px;
       animation: float3D_1 6s ease-in-out infinite;
     }
     .chip-2 {
-      top: 42%;
-      left: -48px;
+      top: 50%;
+      left: -96px;
       animation: float3D_2 7s ease-in-out infinite 1s;
     }
     .chip-3 {
-      top: 15%;
-      left: -38px;
+      top: -28px;
+      left: -32px;
       animation: float3D_3 6.5s ease-in-out infinite 0.5s;
     }
     .chip-4 {
-      bottom: 25px;
-      right: -32px;
+      top: 50%;
+      right: -96px;
       animation: float3D_4 8s ease-in-out infinite 1.5s;
     }
 
@@ -316,21 +317,25 @@
 
     /* hero photo */
     .hero-visual{position:relative;display:flex;justify-content:center}
-    .photo-wrap{position:relative;width:380px;height:460px}
+    .photo-wrap{position:relative;width:380px;height:475px}
     .photo-bg{position:absolute;top:15px;left:15px;width:100%;height:100%;border:2px solid var(--gold);border-radius:8px;z-index:-1;}
     .photo-frame{position:relative;width:100%;height:100%;border-radius:8px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);background:var(--card);}
-    .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top; transition: transform 0.6s var(--ease);filter:grayscale(10%);}
+    .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top; transition: transform 0.6s var(--ease);filter:grayscale(4%);}
     .photo-wrap:hover .photo-frame img { transform: scale(1.03); filter:grayscale(0%); }
 
     .available-card{
-      position:absolute;bottom:-30px;left:-30px;
-      background:var(--card);border-radius:8px;padding:1.2rem 1.5rem;
-      box-shadow:var(--shadow-lg);border:1px solid var(--border);
+      position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);
+      background:rgba(17, 23, 38, 0.95);border-radius:8px;padding:0.95rem 1.4rem;
+      box-shadow:var(--shadow-lg);border:1px solid rgba(194, 152, 91, 0.35);
       display:flex;align-items:center;gap:1rem;
       transition: all 0.4s var(--ease);
-      z-index: 2;
+      z-index: 3;
+      width: max-content;
+      max-width: 92%;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
-    .available-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .available-card:hover { transform: translateX(-50%) translateY(-5px); border-color: var(--gold); }
     .av-icon{font-size:1.8rem}
     .av-text .title{font-size:0.85rem;font-weight:700;color:var(--text)}
     .av-text .sub{font-size:0.75rem;color:var(--gold);font-weight:600}
@@ -991,9 +996,7 @@
     .fade:nth-child(5){animation-delay:.7s}
 
     @media(max-width:860px){
-      .chip-3, .chip-4 { display: none; }
-      .chip-1 { top: -10px; right: 0; }
-      .chip-2 { top: auto; bottom: 35px; left: 0; }
+      .float-3d-chip { display: none; }
 
       .nav-toggle { display: flex; }
       .nav-links {
