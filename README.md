@@ -1,7 +1,8 @@
 # Gokulraj V — Developer Portfolio & GitHub Showcase
 
 > Personal portfolio website showcasing projects, technical training, open-source repositories, and problem-solving credentials.  
-> 🌐 **Live Website:** [gokulrajvel.github.io](https://gokulrajvel.github.io)
+> 🌐 **Live Website:** [gokulrajvel.github.io](https://gokulrajvel.github.io)  
+> 📄 **Resume (PDF):** [Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf](assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf)
 
 ---
 
