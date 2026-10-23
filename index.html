@@ -38,7 +38,7 @@
       --bg: #0d1124;
       --bg-alt: #11152e;
       --bg-panel: rgba(18, 22, 48, 0.74);
-      --bg-panel-hover: rgba(26, 32, 68, 0.88);
+      --bg-panel-hover: rgba(26, 32, 68, 0.9);
       --ink: #ece9ff;
       --mute: #a4a8cc;
       --faint: #6c729c;
@@ -82,49 +82,6 @@
       position: relative;
     }
 
-    /* ── 3D CANVAS & HUD ── */
-    #gl {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: auto;
-    }
-
-    #hud {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(18, 22, 48, 0.88);
-      border: 1px solid var(--line);
-      padding: 9px 22px;
-      border-radius: var(--radius-full);
-      font-size: 0.82rem;
-      color: var(--ink);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 90;
-      pointer-events: none;
-      max-width: 92vw;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
-      transition: border-color 0.25s ease, background 0.25s ease;
-    }
-    #hud b { color: var(--amber); font-weight: 600; }
-    #hud.active-hud { border-color: var(--amber); }
-
-    /* Main Content Wrapper (Above 3D Canvas) */
-    #app {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
-
     /* ── SCROLL PROGRESS BAR ── */
     #scroll-progress {
       position: fixed;
@@ -152,7 +109,7 @@
       left: 0;
       right: 0;
       height: 72px;
-      background: rgba(13, 17, 36, 0.82);
+      background: rgba(13, 17, 36, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line-subtle);
@@ -162,7 +119,7 @@
       transition: background 0.25s ease, border-color 0.25s ease;
     }
     header.scrolled {
-      background: rgba(13, 17, 36, 0.94);
+      background: rgba(13, 17, 36, 0.96);
       border-bottom-color: var(--line);
     }
     .nav-container {
@@ -221,31 +178,23 @@
       align-items: center;
       gap: 1rem;
     }
-    .btn-3d-toggle {
+    .nav-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-full);
-      background: rgba(236, 233, 255, 0.06);
-      border: 1px solid var(--line);
-      color: var(--mute);
-      font-size: 0.78rem;
-      font-family: var(--font-mono);
-      cursor: pointer;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 180, 84, 0.12);
+      border: 1px solid rgba(255, 180, 84, 0.35);
+      color: var(--amber);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
       transition: all 0.2s ease;
     }
-    .btn-3d-toggle:hover {
-      background: rgba(236, 233, 255, 0.12);
-      color: var(--ink);
-      border-color: var(--teal);
-    }
-    .btn-3d-toggle .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 8px var(--teal);
+    .nav-cta:hover {
+      background: var(--amber);
+      color: #0d1124;
     }
     .nav-toggle {
       display: none;
@@ -276,7 +225,7 @@
       position: relative;
     }
     .section-header {
-      margin-bottom: 3.5rem;
+      margin-bottom: 3.2rem;
     }
     .section-eyebrow {
       font-family: var(--font-mono);
@@ -295,7 +244,7 @@
       color: var(--teal);
     }
     .section-title {
-      font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
       letter-spacing: -0.025em;
       color: var(--ink);
     }
@@ -303,7 +252,7 @@
       color: var(--mute);
       font-size: 1.05rem;
       margin-top: 0.75rem;
-      max-width: 650px;
+      max-width: 680px;
       line-height: 1.7;
     }
 
@@ -359,19 +308,34 @@
       background: rgba(79, 209, 197, 0.06);
     }
 
-    /* ── HERO SECTION ── */
+    /* ── HERO SECTION (CLEAN, FOCUSED, CLUTTER-FREE) ── */
     #home {
-      min-height: clamp(600px, calc(100vh - 72px), 860px);
-      padding: 6rem 2rem 4rem;
+      min-height: clamp(620px, calc(100vh - 72px), 880px);
+      padding: 6.5rem 2rem 4rem;
       display: flex;
       align-items: center;
+      position: relative;
+    }
+    #home::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 5%;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79, 209, 197, 0.09) 0%, rgba(255, 180, 84, 0.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.22fr 0.78fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 4.5rem;
       align-items: center;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
     .hero-greeting {
       font-family: var(--font-mono);
@@ -414,7 +378,7 @@
       color: var(--mute);
       line-height: 1.8;
       margin-bottom: 2.2rem;
-      max-width: 540px;
+      max-width: 550px;
     }
     .hero-actions {
       display: flex;
@@ -445,7 +409,7 @@
       color: var(--line);
     }
 
-    /* Hero Portrait (Navy Suit Blazer) */
+    /* Hero Portrait (Executive Navy Suit Blazer) */
     .hero-photo-wrap {
       display: flex;
       justify-content: center;
@@ -580,6 +544,109 @@
       color: var(--mute);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    /* ── DEDICATED 3D SKILL & ARCHITECTURE GRAPH FRAME ── */
+    .graph-frame {
+      width: 100%;
+      height: 480px;
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: #090c1c;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    #gl {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+    #gl:active {
+      cursor: grabbing;
+    }
+    .graph-toolbar {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      right: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .graph-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(18, 22, 48, 0.85);
+      border: 1px solid var(--line);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--ink);
+      backdrop-filter: blur(10px);
+    }
+    .graph-badge .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+    }
+    .graph-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: auto;
+    }
+    .graph-ctrl-btn {
+      background: rgba(18, 22, 48, 0.85);
+      border: 1px solid var(--line);
+      color: var(--mute);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.15s ease;
+    }
+    .graph-ctrl-btn:hover {
+      color: var(--ink);
+      border-color: var(--amber);
+      background: rgba(26, 32, 68, 0.95);
+    }
+    .graph-hud-bar {
+      position: absolute;
+      bottom: 12px;
+      left: 18px;
+      right: 18px;
+      background: rgba(18, 22, 48, 0.9);
+      border: 1px solid var(--line);
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      color: var(--mute);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      pointer-events: none;
+      transition: border-color 0.25s ease;
+    }
+    .graph-hud-bar b {
+      color: var(--amber);
+      font-weight: 600;
+    }
+    .graph-hud-bar.active {
+      border-color: var(--amber);
     }
 
     /* ── SKILLS SECTION ── */
@@ -743,6 +810,7 @@
       background: rgba(236, 233, 255, 0.06);
       border: 1px solid var(--line);
       transition: all 0.18s ease;
+      cursor: pointer;
     }
     .p-link:hover {
       background: rgba(236, 233, 255, 0.14);
@@ -1031,7 +1099,7 @@
     /* ── TOAST ── */
     #toast {
       position: fixed;
-      bottom: 70px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
       background: var(--amber);
@@ -1058,11 +1126,10 @@
       .tilt-card { width: 280px; height: 350px; }
       .about-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      .graph-frame { height: 400px; }
     }
 
     @media (max-width: 768px) {
-      #gl { opacity: 0.35; }
-      .hero-social { gap: 0.65rem 1rem; }
       .nav-toggle { display: flex; }
       .nav-links {
         position: fixed;
@@ -1085,7 +1152,9 @@
       .workshop-gallery-grid { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
+      .hero-social { gap: 0.65rem 1rem; }
       footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .graph-frame { height: 360px; }
     }
   </style>
 </head>
@@ -1094,688 +1163,695 @@
   <!-- Top Scroll Progress -->
   <div id="scroll-progress"></div>
 
-  <!-- Interactive 3D WebGL Canvas -->
-  <canvas id="gl" aria-hidden="true"></canvas>
+  <!-- Header Navigation -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand">Gokulraj<span>.</span></a>
 
-  <!-- Interactive 3D HUD Status Pill -->
-  <div id="hud" role="status"><span id="hudtxt">11 GitHub repos linked to 35 skills. Hover a project or a skill group to see how they connect.</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills &amp; Architecture</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-  <!-- Main Website Content -->
-  <div id="app">
-
-    <!-- Header Navigation -->
-    <header id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="brand">Gokulraj<span>.</span></a>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div class="nav-actions">
-          <button class="btn-3d-toggle" id="toggle3D" title="Toggle 3D Skill Graph interactivity">
-            <span class="dot"></span>
-            <span>3D Graph</span>
-          </button>
-          <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-        </div>
+      <div class="nav-actions">
+        <a href="assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" download="Gokulraj_V_Resume.pdf" class="nav-cta">Resume ↗</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-greeting">// Hello, I'm</div>
-          <h1 class="hero-name">Gokulraj V</h1>
-          <div class="role-wrapper">
-            <span id="roleTxt" class="hero-role">Java Developer | Full-Stack Developer</span>
-          </div>
-          <p class="hero-bio">
-            I build scalable backend applications, distributed caching systems, and responsive web experiences using Java, Spring Boot, MySQL, and modern web technologies. Computer Science Engineering graduate from Sri Shakthi Institute of Engineering and Technology, trained at Zoho Corporation (ZSGS).
-          </p>
-
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" download="Gokulraj_V_Resume.pdf" class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span>Download Resume</span>
-            </a>
-          </div>
-
-          <div class="hero-social">
-            <a href="https://github.com/gokulrajvel" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
-            <span class="social-sep">/</span>
-            <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              <span>LinkedIn</span>
-            </a>
-            <span class="social-sep">/</span>
-            <a href="https://leetcode.com/u/vgokulraj360/" target="_blank" rel="noopener noreferrer" class="social-link" title="LeetCode">
-              <span>LeetCode (150+)</span>
-            </a>
-            <span class="social-sep">/</span>
-            <a href="https://www.hackerrank.com/vgokulraj360" target="_blank" rel="noopener noreferrer" class="social-link" title="HackerRank">
-              <span>HackerRank</span>
-            </a>
-          </div>
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-greeting">// Hello, I'm</div>
+        <h1 class="hero-name">Gokulraj V</h1>
+        <div class="role-wrapper">
+          <span id="roleTxt" class="hero-role">Java Developer | Full-Stack Developer</span>
         </div>
+        <p class="hero-bio">
+          I build scalable backend applications, distributed caching systems, and responsive web experiences using Java, Spring Boot, MySQL, and modern web technologies. Computer Science Engineering graduate from Sri Shakthi Institute of Engineering and Technology, trained at Zoho Corporation (ZSGS).
+        </p>
 
-        <!-- Hero Portrait Column with 3D Tilt -->
-        <div class="hero-photo-wrap">
-          <div class="tilt-card" id="portraitCard">
-            <picture>
-              <source srcset="assets/images/gokulraj_portrait.webp" type="image/webp"/>
-              <img src="assets/images/gokulraj_portrait.png" alt="Gokulraj V — Java Backend & Full Stack Developer" class="hero-photo"/>
-            </picture>
-            <div class="photo-caption">
-              <span>Gokulraj V</span>
-              <span class="status-dot">Open to Work</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-      <div class="section-header">
-        <div class="section-eyebrow">01 · Overview</div>
-        <h2 class="section-title">Background &amp; Expertise</h2>
-        <p class="section-desc">Engineering resilient server-side architectures, real-time distributed caches, and clean client-facing applications.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I am <strong>Gokulraj V</strong>, a Computer Science Engineering graduate (2025) from <strong>Sri Shakthi Institute of Engineering and Technology, Coimbatore</strong> (CGPA 7.19), specializing in backend systems development and full-stack integration.
-          </p>
-          <p>
-            I completed rigorous technical training at <strong>Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</strong>, mastering Advanced Java, Multithreading, N-tier REST architectural patterns, root-cause debugging, and containerized deployment workflows with Docker and Git.
-          </p>
-          <p>
-            My engineering work includes architecting multi-tenant decoupled backends with <strong>Spring Boot and MySQL</strong>, automating high-availability <strong>Redis Cluster</strong> failover topologies using Ansible and Python, and launching commercial web solutions for production clients.
-          </p>
-
-          <div class="about-tags">
-            <span class="pill">📍 Tirupathur, Tamil Nadu</span>
-            <span class="pill">🎓 B.E. CSE (CGPA 7.19)</span>
-            <span class="pill">🏢 Zoho (ZSGS) Technical Training</span>
-            <span class="pill">⚡ Immediate Joiner</span>
-            <span class="pill">🌐 Open to Remote &amp; Relocation</span>
-          </div>
-        </div>
-
-        <div class="about-metrics">
-          <div class="metric-card panel">
-            <div class="metric-val">150+</div>
-            <div class="metric-label">LeetCode Problems Solved</div>
-          </div>
-          <div class="metric-card panel">
-            <div class="metric-val teal">11</div>
-            <div class="metric-label">Live Repos in 3D Knowledge Map</div>
-          </div>
-          <div class="metric-card panel">
-            <div class="metric-val purple">35</div>
-            <div class="metric-label">Verified Technologies Mastered</div>
-          </div>
-          <div class="metric-card panel">
-            <div class="metric-val gold">🦈 Pull Shark</div>
-            <div class="metric-label">GitHub Contribution Badge</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="section-header">
-        <div class="section-eyebrow">02 · Technical Stack</div>
-        <h2 class="section-title">Skills &amp; Capabilities</h2>
-        <p class="section-desc">Hover over any skill category to see which projects and systems utilize that tech stack in the 3D map.</p>
-      </div>
-
-      <div class="skills-grid">
-        <!-- 1. Backend -->
-        <div class="skill-card panel" data-group="Backend">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#ffb454; box-shadow:0 0 8px #ffb454;"></span>
-              <span>Backend</span>
-            </div>
-            <span class="skill-badge-count">8 Skills</span>
-          </div>
-          <div class="skill-items">Java, Spring Boot, Spring Data JPA, Spring Security, Hibernate, JDBC, Maven, Microservices</div>
-        </div>
-
-        <!-- 2. Frontend -->
-        <div class="skill-card panel" data-group="Frontend">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#b79cff; box-shadow:0 0 8px #b79cff;"></span>
-              <span>Frontend</span>
-            </div>
-            <span class="skill-badge-count">5 Skills</span>
-          </div>
-          <div class="skill-items">JavaScript, HTML5, CSS3, DOM Manipulation, Vite</div>
-        </div>
-
-        <!-- 3. Mobile & AI -->
-        <div class="skill-card panel" data-group="Mobile and AI">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#f78fb3; box-shadow:0 0 8px #f78fb3;"></span>
-              <span>Mobile &amp; AI</span>
-            </div>
-            <span class="skill-badge-count">4 Skills</span>
-          </div>
-          <div class="skill-items">Kotlin, Android SDK, Google Gemini API, Room DB, Barcode Scanner</div>
-        </div>
-
-        <!-- 4. Data -->
-        <div class="skill-card panel" data-group="Data">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#4fd1c5; box-shadow:0 0 8px #4fd1c5;"></span>
-              <span>Data &amp; Cache</span>
-            </div>
-            <span class="skill-badge-count">3 Skills</span>
-          </div>
-          <div class="skill-items">MySQL, Redis Clustering &amp; Failover, SQL, Schema Design</div>
-        </div>
-
-        <!-- 5. DevOps -->
-        <div class="skill-card panel" data-group="DevOps">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#6fb3ff; box-shadow:0 0 8px #6fb3ff;"></span>
-              <span>DevOps &amp; Systems</span>
-            </div>
-            <span class="skill-badge-count">7 Skills</span>
-          </div>
-          <div class="skill-items">Docker, Podman, Ansible, Linux, Bash Scripting, Python, Git &amp; GitHub</div>
-        </div>
-
-        <!-- 6. Security -->
-        <div class="skill-card panel" data-group="Security">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#ff7a90; box-shadow:0 0 8px #ff7a90;"></span>
-              <span>Security</span>
-            </div>
-            <span class="skill-badge-count">3 Skills</span>
-          </div>
-          <div class="skill-items">JWT Authentication, Role-Based Access Control (RBAC), BCrypt Hashing</div>
-        </div>
-
-        <!-- 7. Testing -->
-        <div class="skill-card panel" data-group="Testing">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#8be28b; box-shadow:0 0 8px #8be28b;"></span>
-              <span>Testing &amp; QA</span>
-            </div>
-            <span class="skill-badge-count">2 Skills</span>
-          </div>
-          <div class="skill-items">JUnit, Mockito, Postman API Testing, Integration Testing</div>
-        </div>
-
-        <!-- 8. Core -->
-        <div class="skill-card panel" data-group="Core">
-          <div class="skill-card-header">
-            <div class="skill-group-name">
-              <span class="skill-indicator" style="background:#e6e06a; box-shadow:0 0 8px #e6e06a;"></span>
-              <span>Core Fundamentals</span>
-            </div>
-            <span class="skill-badge-count">3 Skills</span>
-          </div>
-          <div class="skill-items">Data Structures &amp; Algorithms, OOP Principles, MVC/MVP, DTO Pattern, Multithreading</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <div class="section-header">
-        <div class="section-eyebrow">03 · Portfolio Showcase</div>
-        <h2 class="section-title">Projects &amp; Architectures</h2>
-        <p class="section-desc">Interactive portfolio of enterprise backend systems, freelance client delivery, and applied AI applications.</p>
-      </div>
-
-      <!-- Filters -->
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All Projects (11)</button>
-        <button class="filter-btn" data-filter="freelance">Freelance Client Work</button>
-        <button class="filter-btn" data-filter="backend">Backend &amp; Microservices</button>
-        <button class="filter-btn" data-filter="devops">DevOps &amp; Systems</button>
-        <button class="filter-btn" data-filter="mobile">Mobile &amp; Applied AI</button>
-        <button class="filter-btn" data-filter="core">Core Java &amp; DSA</button>
-      </div>
-
-      <div class="projects-grid">
-        <!-- 1. GMart Decoupled -->
-        <div class="project-card panel featured" data-cat="backend" data-repo="GMart">
-          <div class="project-header">
-            <span class="project-tag">Full-Stack Enterprise</span>
-            <h3 class="project-title">GMart Inventory &amp; Billing Platform</h3>
-            <p class="project-desc">
-              Decoupled Spring Boot enterprise backend with full Role-Based Access Control (RBAC), multi-tier inventory workflow, and automated billing engine.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">Spring Boot</span>
-              <span class="stack-chip">JPA</span>
-              <span class="stack-chip">MySQL</span>
-              <span class="stack-chip">Vite JS</span>
-              <span class="stack-chip">Docker</span>
-              <span class="stack-chip">RBAC</span>
-            </div>
-            <div class="project-links">
-              <a href="https://gmart-inventory.onrender.com/index.html" target="_blank" rel="noopener noreferrer" class="p-link primary">Live Demo ↗</a>
-              <button class="p-link" onclick="openCredsModal()">Test Logins 🔑</button>
-              <a href="https://github.com/gokulrajvel/GMart-Decoupled-backend" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Redis Cluster Lifecycle -->
-        <div class="project-card panel featured" data-cat="devops" data-repo="Redis-Cluster-Lifecycle">
-          <div class="project-header">
-            <span class="project-tag">DevOps &amp; High Availability</span>
-            <h3 class="project-title">Redis Cluster Lifecycle Tool</h3>
-            <p class="project-desc">
-              Zero-downtime cluster orchestration automating rolling failovers, master-replica health checks, and cluster topology reconfiguration using Ansible &amp; Docker.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Redis</span>
-              <span class="stack-chip">Docker</span>
-              <span class="stack-chip">Podman</span>
-              <span class="stack-chip">Ansible</span>
-              <span class="stack-chip">Python</span>
-              <span class="stack-chip">Bash</span>
-              <span class="stack-chip">Linux</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/Redis-Cluster-Lifecycle" target="_blank" rel="noopener noreferrer" class="p-link primary">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Saravana Engineering -->
-        <div class="project-card panel featured" data-cat="freelance" data-repo="Saravana Engineering">
-          <div class="project-header">
-            <span class="project-tag freelance">Freelance Client Delivery</span>
-            <h3 class="project-title">Saravana Engineering Client Portal</h3>
-            <p class="project-desc">
-              Production website designed and launched live for an industrial machining firm, featuring mobile-first catalogs, workshop inquiry forms, and Netlify CI/CD.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">HTML5</span>
-              <span class="stack-chip">CSS3</span>
-              <span class="stack-chip">JavaScript</span>
-              <span class="stack-chip">Netlify</span>
-              <span class="stack-chip">Client Delivery</span>
-            </div>
-            <div class="project-links">
-              <a href="https://saravana-engineering.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-link primary">Live Client Site ↗</a>
-              <button class="p-link" onclick="openWorkshopModal()">Workshop Photos 📸</button>
-              <a href="https://github.com/gokulrajvel/Saravana-Engineering" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Yosan Finance -->
-        <div class="project-card panel" data-cat="backend" data-repo="Yosan">
-          <div class="project-header">
-            <span class="project-tag">Distributed Systems</span>
-            <h3 class="project-title">Yosan — Personal Finance Engine</h3>
-            <p class="project-desc">
-              Multi-tenant financial tracking engine with Spring Boot REST APIs, Redis cache layer for sub-millisecond account balance lookups, and Docker containers.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">Spring Boot</span>
-              <span class="stack-chip">MySQL</span>
-              <span class="stack-chip">Redis</span>
-              <span class="stack-chip">Docker</span>
-              <span class="stack-chip">Maven</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/yosanfinance-sudo" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Organization ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Finance OS -->
-        <div class="project-card panel" data-cat="mobile" data-repo="finance-os">
-          <div class="project-header">
-            <span class="project-tag">Mobile &amp; Applied AI</span>
-            <h3 class="project-title">Finance OS — Android &amp; Gemini AI</h3>
-            <p class="project-desc">
-              Native Android dashboard integrating Google Gemini API to parse financial statement screenshots and automate spending categorization with Room DB storage.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Kotlin</span>
-              <span class="stack-chip">Android SDK</span>
-              <span class="stack-chip">Gemini AI</span>
-              <span class="stack-chip">Room DB</span>
-              <span class="stack-chip">Jetpack</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/finance-os" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. GMart Mobile Companion -->
-        <div class="project-card panel" data-cat="mobile" data-repo="MobileApp">
-          <div class="project-header">
-            <span class="project-tag">Mobile Companion</span>
-            <h3 class="project-title">GMart Mobile Inventory Companion</h3>
-            <p class="project-desc">
-              Android warehouse companion supporting camera-based hardware barcode scanning, offline-first SQLite synchronization, and instant low-stock notifications.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Kotlin</span>
-              <span class="stack-chip">Android</span>
-              <span class="stack-chip">Barcode Scan</span>
-              <span class="stack-chip">Room DB</span>
-              <span class="stack-chip">Material 3</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/MobileApp" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7. SIET Placement Portal -->
-        <div class="project-card panel" data-cat="backend" data-repo="SIET Placement">
-          <div class="project-header">
-            <span class="project-tag">Campus Automation</span>
-            <h3 class="project-title">SIET Placement Management Portal</h3>
-            <p class="project-desc">
-              Enterprise console portal managing corporate recruitment drives, applicant eligibility filters, and interview stages using MVP architecture and JDBC.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">MySQL</span>
-              <span class="stack-chip">JDBC</span>
-              <span class="stack-chip">MVP Architecture</span>
-              <span class="stack-chip">DTOs</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/SIET_Placement_Management" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Bank ATM Simulator -->
-        <div class="project-card panel" data-cat="core" data-repo="Bank ATM">
-          <div class="project-header">
-            <span class="project-tag">Security &amp; DOM</span>
-            <h3 class="project-title">Bank ATM Simulator</h3>
-            <p class="project-desc">
-              Interactive ATM engine built with pure object-oriented JavaScript, PIN hashing, brute-force lockout safeguards, and real-time transaction ledger.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">HTML5</span>
-              <span class="stack-chip">CSS3</span>
-              <span class="stack-chip">JavaScript</span>
-              <span class="stack-chip">DOM</span>
-              <span class="stack-chip">OOP</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/Bank_ATM" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Camera Rental -->
-        <div class="project-card panel" data-cat="core" data-repo="Camera Rental">
-          <div class="project-header">
-            <span class="project-tag">Enterprise OOP</span>
-            <h3 class="project-title">Camera Rental Enterprise System</h3>
-            <p class="project-desc">
-              Production equipment inventory management software utilizing MVC patterns, automated depreciation schedules, and return penalty calculation engines.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">MVC</span>
-              <span class="stack-chip">OOP</span>
-              <span class="stack-chip">Collections</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/Camera_Rental" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10. Vehicle Fleet -->
-        <div class="project-card panel" data-cat="backend" data-repo="Vehicle Fleet">
-          <div class="project-header">
-            <span class="project-tag">Database &amp; RBAC</span>
-            <h3 class="project-title">Vehicle Fleet &amp; Rental Booking</h3>
-            <p class="project-desc">
-              Fleet management application featuring SQL injection defense via parameterized JDBC queries, transactional booking guarantees, and customer portals.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">MySQL</span>
-              <span class="stack-chip">JDBC</span>
-              <span class="stack-chip">RBAC</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/gokulrajvel/Vehicle_Management" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11. Problem Solving & DSA -->
-        <div class="project-card panel" data-cat="core" data-repo="problem-solving">
-          <div class="project-header">
-            <span class="project-tag">Algorithms &amp; DSA</span>
-            <h3 class="project-title">Problem Solving &amp; DSA Repository</h3>
-            <p class="project-desc">
-              Curated repository of 150+ optimal Java solutions covering sliding window, binary trees, graph traversals, bit manipulation, and dynamic programming.
-            </p>
-          </div>
-          <div>
-            <div class="project-stack">
-              <span class="stack-chip">Java</span>
-              <span class="stack-chip">DSA</span>
-              <span class="stack-chip">LeetCode (150+)</span>
-              <span class="stack-chip">HackerRank</span>
-            </div>
-            <div class="project-links">
-              <a href="https://leetcode.com/u/vgokulraj360/" target="_blank" rel="noopener noreferrer" class="p-link primary">LeetCode Profile ↗</a>
-              <a href="https://github.com/gokulrajvel/problem-solving" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-      <div class="section-header">
-        <div class="section-eyebrow">04 · Journey</div>
-        <h2 class="section-title">Experience &amp; Education</h2>
-        <p class="section-desc">Practical software engineering experience, client delivery, and certified foundation.</p>
-      </div>
-
-      <div class="timeline">
-        <!-- Zoho -->
-        <div class="timeline-item panel">
-          <div class="timeline-header">
-            <div class="timeline-role">Technical Trainee</div>
-            <div class="timeline-period">Jan 2026 – Jun 2026</div>
-          </div>
-          <div class="timeline-org">Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</div>
-          <p class="timeline-desc">
-            Completed intensive technical training covering Advanced Java, Data Structures &amp; Algorithms, Multithreading, Debugging &amp; Root-Cause Analysis, N-tier REST APIs, Docker, and Git workflows. Built scalable enterprise modules following production-grade Zoho software standards.
-          </p>
-        </div>
-
-        <!-- Freelance -->
-        <div class="timeline-item panel">
-          <div class="timeline-header">
-            <div class="timeline-role">Freelance Web Developer</div>
-            <div class="timeline-period">Completed Client Project</div>
-          </div>
-          <div class="timeline-org">Saravana Engineering · Netlify Production Delivery</div>
-          <p class="timeline-desc">
-            Direct client engagement: gathered industrial machining requirements, designed mobile-responsive product catalogs, built interactive inquiry forms, and launched the commercial site to production on Netlify.
-          </p>
-        </div>
-
-        <!-- Education -->
-        <div class="timeline-item panel">
-          <div class="timeline-header">
-            <div class="timeline-role">B.E. Computer Science and Engineering</div>
-            <div class="timeline-period">2021 – 2025 · CGPA: 7.19</div>
-          </div>
-          <div class="timeline-org">Sri Shakthi Institute of Engineering and Technology, Coimbatore</div>
-          <p class="timeline-desc">
-            Graduated with strong foundations in Operating Systems, Database Management Systems, Computer Networks, Software Engineering, Object-Oriented Analysis, and Algorithmic Design.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-      <div class="section-header">
-        <div class="section-eyebrow">05 · Credentials</div>
-        <h2 class="section-title">Verified Certifications</h2>
-        <p class="section-desc">Industry-standard accreditations validating core Java competence and software foundations.</p>
-      </div>
-
-      <div class="cert-card panel">
-        <div class="cert-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div>
-          <div class="cert-title">Oracle Certified Foundations Associate, Java</div>
-          <div class="cert-meta">Oracle University · Comprehensive Object-Oriented Java &amp; Core Platform APIs</div>
-        </div>
-        <div>
-          <button class="btn btn-secondary" onclick="openCertModal()">View Certificate 🔍</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume">
-      <div class="resume-box panel">
-        <div class="resume-info">
-          <h3>Download Professional Resume</h3>
-          <p>
-            One-page verified resume detailing technical stack (Java, Spring Boot, Redis, Docker, Android), enterprise training at Zoho, freelance client work, and educational credentials.
-          </p>
-        </div>
-        <div>
-          <a href="assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" download="Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" class="btn btn-primary">
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" download="Gokulraj_V_Resume.pdf" class="btn btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Download PDF (1-Page)</span>
+            <span>Download Resume</span>
+          </a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://github.com/gokulrajvel" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <span class="social-sep">/</span>
+          <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <span class="social-sep">/</span>
+          <a href="https://leetcode.com/u/vgokulraj360/" target="_blank" rel="noopener noreferrer" class="social-link" title="LeetCode">
+            <span>LeetCode (150+)</span>
+          </a>
+          <span class="social-sep">/</span>
+          <a href="https://www.hackerrank.com/vgokulraj360" target="_blank" rel="noopener noreferrer" class="social-link" title="HackerRank">
+            <span>HackerRank</span>
           </a>
         </div>
       </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="section-header">
-        <div class="section-eyebrow">06 · Connect</div>
-        <h2 class="section-title">Let's Discuss Opportunities</h2>
-        <p class="section-desc">Open for entry-level Java Backend, Full Stack Developer, or Software Engineer roles in India or Remote.</p>
+      <!-- Hero Portrait Column with 3D Tilt -->
+      <div class="hero-photo-wrap">
+        <div class="tilt-card" id="portraitCard">
+          <picture>
+            <source srcset="assets/images/gokulraj_portrait.webp" type="image/webp"/>
+            <img src="assets/images/gokulraj_portrait.png" alt="Gokulraj V — Java Backend & Full Stack Developer" class="hero-photo"/>
+          </picture>
+          <div class="photo-caption">
+            <span>Gokulraj V</span>
+            <span class="status-dot">Open to Work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header">
+      <div class="section-eyebrow">01 · Overview</div>
+      <h2 class="section-title">Background &amp; Expertise</h2>
+      <p class="section-desc">Engineering resilient server-side architectures, real-time distributed caches, and clean client-facing applications.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am <strong>Gokulraj V</strong>, a Computer Science Engineering graduate (2025) from <strong>Sri Shakthi Institute of Engineering and Technology, Coimbatore</strong> (CGPA 7.19), specializing in backend systems development and full-stack integration.
+        </p>
+        <p>
+          I completed rigorous technical training at <strong>Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</strong>, mastering Advanced Java, Multithreading, N-tier REST architectural patterns, root-cause debugging, and containerized deployment workflows with Docker and Git.
+        </p>
+        <p>
+          My engineering work includes architecting multi-tenant decoupled backends with <strong>Spring Boot and MySQL</strong>, automating high-availability <strong>Redis Cluster</strong> failover topologies using Ansible and Python, and launching commercial web solutions for production clients.
+        </p>
+
+        <div class="about-tags">
+          <span class="pill">📍 Tirupathur, Tamil Nadu</span>
+          <span class="pill">🎓 B.E. CSE (CGPA 7.19)</span>
+          <span class="pill">🏢 Zoho (ZSGS) Technical Training</span>
+          <span class="pill">⚡ Immediate Joiner</span>
+          <span class="pill">🌐 Open to Remote &amp; Relocation</span>
+        </div>
       </div>
 
-      <div class="contact-grid">
-        <div class="contact-copy">
-          <p>
-            I am available to start immediately. Whether you have an open engineering position, need to scale your backend services, or want to discuss my technical projects — I'd love to connect.
+      <div class="about-metrics">
+        <div class="metric-card panel">
+          <div class="metric-val">150+</div>
+          <div class="metric-label">LeetCode Problems Solved</div>
+        </div>
+        <div class="metric-card panel">
+          <div class="metric-val teal">11</div>
+          <div class="metric-label">Live Repos in 3D Knowledge Map</div>
+        </div>
+        <div class="metric-card panel">
+          <div class="metric-val purple">35</div>
+          <div class="metric-label">Verified Technologies Mastered</div>
+        </div>
+        <div class="metric-card panel">
+          <div class="metric-val gold">🦈 Pull Shark</div>
+          <div class="metric-label">GitHub Contribution Badge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Architecture Section (With Dedicated 3D Knowledge Graph Frame) -->
+  <section id="skills">
+    <div class="section-header">
+      <div class="section-eyebrow">02 · Technical Architecture</div>
+      <h2 class="section-title">Skills &amp; Architecture Map</h2>
+      <p class="section-desc">Interactive 3D dependency mapping of 11 repositories to 35 verified skills with live energy pulses. Hover any project or skill card to trace connections.</p>
+    </div>
+
+    <!-- Contained 3D Knowledge Graph Frame -->
+    <div class="graph-frame" id="graphFrame">
+      <canvas id="gl"></canvas>
+
+      <div class="graph-toolbar">
+        <div class="graph-badge">
+          <span class="pulse"></span>
+          <span>Interactive 3D Dependency Graph · Drag to Orbit · Scroll to Zoom</span>
+        </div>
+        <div class="graph-controls">
+          <button class="graph-ctrl-btn" id="toggleRotateBtn">Pause Rotation</button>
+          <button class="graph-ctrl-btn" id="resetViewBtn">Reset View</button>
+        </div>
+      </div>
+
+      <div class="graph-hud-bar" id="hudBar">
+        <span id="hudtxt">11 GitHub repos linked to 35 skills. Hover a project or a skill group to see how they connect.</span>
+      </div>
+    </div>
+
+    <!-- 8 Categorized Skill Panels -->
+    <div class="skills-grid">
+      <!-- 1. Backend -->
+      <div class="skill-card panel" data-group="Backend">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#ffb454; box-shadow:0 0 8px #ffb454;"></span>
+            <span>Backend</span>
+          </div>
+          <span class="skill-badge-count">8 Skills</span>
+        </div>
+        <div class="skill-items">Java, Spring Boot, Spring Data JPA, Spring Security, Hibernate, JDBC, Maven, Microservices</div>
+      </div>
+
+      <!-- 2. Frontend -->
+      <div class="skill-card panel" data-group="Frontend">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#b79cff; box-shadow:0 0 8px #b79cff;"></span>
+            <span>Frontend</span>
+          </div>
+          <span class="skill-badge-count">5 Skills</span>
+        </div>
+        <div class="skill-items">JavaScript, HTML5, CSS3, DOM Manipulation, Vite</div>
+      </div>
+
+      <!-- 3. Mobile & AI -->
+      <div class="skill-card panel" data-group="Mobile and AI">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#f78fb3; box-shadow:0 0 8px #f78fb3;"></span>
+            <span>Mobile &amp; AI</span>
+          </div>
+          <span class="skill-badge-count">4 Skills</span>
+        </div>
+        <div class="skill-items">Kotlin, Android SDK, Google Gemini API, Room DB, Barcode Scanner</div>
+      </div>
+
+      <!-- 4. Data -->
+      <div class="skill-card panel" data-group="Data">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#4fd1c5; box-shadow:0 0 8px #4fd1c5;"></span>
+            <span>Data &amp; Cache</span>
+          </div>
+          <span class="skill-badge-count">3 Skills</span>
+        </div>
+        <div class="skill-items">MySQL, Redis Clustering &amp; Failover, SQL, Schema Design</div>
+      </div>
+
+      <!-- 5. DevOps -->
+      <div class="skill-card panel" data-group="DevOps">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#6fb3ff; box-shadow:0 0 8px #6fb3ff;"></span>
+            <span>DevOps &amp; Systems</span>
+          </div>
+          <span class="skill-badge-count">7 Skills</span>
+        </div>
+        <div class="skill-items">Docker, Podman, Ansible, Linux, Bash Scripting, Python, Git &amp; GitHub</div>
+      </div>
+
+      <!-- 6. Security -->
+      <div class="skill-card panel" data-group="Security">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#ff7a90; box-shadow:0 0 8px #ff7a90;"></span>
+            <span>Security</span>
+          </div>
+          <span class="skill-badge-count">3 Skills</span>
+        </div>
+        <div class="skill-items">JWT Authentication, Role-Based Access Control (RBAC), BCrypt Hashing</div>
+      </div>
+
+      <!-- 7. Testing -->
+      <div class="skill-card panel" data-group="Testing">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#8be28b; box-shadow:0 0 8px #8be28b;"></span>
+            <span>Testing &amp; QA</span>
+          </div>
+          <span class="skill-badge-count">2 Skills</span>
+        </div>
+        <div class="skill-items">JUnit, Mockito, Postman API Testing, Integration Testing</div>
+      </div>
+
+      <!-- 8. Core -->
+      <div class="skill-card panel" data-group="Core">
+        <div class="skill-card-header">
+          <div class="skill-group-name">
+            <span class="skill-indicator" style="background:#e6e06a; box-shadow:0 0 8px #e6e06a;"></span>
+            <span>Core Fundamentals</span>
+          </div>
+          <span class="skill-badge-count">3 Skills</span>
+        </div>
+        <div class="skill-items">Data Structures &amp; Algorithms, OOP Principles, MVC/MVP, DTO Pattern, Multithreading</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <div class="section-eyebrow">03 · Portfolio Showcase</div>
+      <h2 class="section-title">Projects &amp; Architectures</h2>
+      <p class="section-desc">Interactive portfolio of enterprise backend systems, freelance client delivery, and applied AI applications.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All Projects (11)</button>
+      <button class="filter-btn" data-filter="freelance">Freelance Client Work</button>
+      <button class="filter-btn" data-filter="backend">Backend &amp; Microservices</button>
+      <button class="filter-btn" data-filter="devops">DevOps &amp; Systems</button>
+      <button class="filter-btn" data-filter="mobile">Mobile &amp; Applied AI</button>
+      <button class="filter-btn" data-filter="core">Core Java &amp; DSA</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- 1. GMart Decoupled -->
+      <div class="project-card panel featured" data-cat="backend" data-repo="GMart">
+        <div class="project-header">
+          <span class="project-tag">Full-Stack Enterprise</span>
+          <h3 class="project-title">GMart Inventory &amp; Billing Platform</h3>
+          <p class="project-desc">
+            Decoupled Spring Boot enterprise backend with full Role-Based Access Control (RBAC), multi-tier inventory workflow, and automated billing engine.
           </p>
-
-          <div class="email-display-card panel">
-            <div>
-              <div style="font-size:0.75rem; font-family:var(--font-mono); color:var(--mute); margin-bottom:0.2rem;">DIRECT INBOX</div>
-              <div class="email-text">vgokulraj360@gmail.com</div>
-            </div>
-            <button class="btn btn-secondary" onclick="copyEmail()" id="copyBtn">Copy Email</button>
-          </div>
-
-          <div class="contact-links">
-            <a href="mailto:vgokulraj360@gmail.com" class="btn btn-primary">Send Email Directly</a>
-            <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Connect on LinkedIn</a>
-            <a href="https://github.com/gokulrajvel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Profile</a>
-          </div>
         </div>
-
-        <!-- Recruiter Quick Inquiry Builder -->
-        <div class="inquiry-panel panel">
-          <h3>Quick Recruiter Message Builder</h3>
-          <div class="form-group">
-            <label for="inqTopic">Inquiry Topic</label>
-            <select id="inqTopic" class="form-control" onchange="updateInquiryPreview()">
-              <option value="interview">Schedule an Interview</option>
-              <option value="java_role">Java Backend Developer Opportunity</option>
-              <option value="fullstack_role">Full Stack Developer Role</option>
-              <option value="freelance">Freelance Web Project</option>
-            </select>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">Spring Boot</span>
+            <span class="stack-chip">JPA</span>
+            <span class="stack-chip">MySQL</span>
+            <span class="stack-chip">Vite JS</span>
+            <span class="stack-chip">Docker</span>
+            <span class="stack-chip">RBAC</span>
           </div>
-          <div class="form-group">
-            <label for="inqCompany">Your Company / Organization</label>
-            <input type="text" id="inqCompany" class="form-control" placeholder="e.g. Acme Corp / Zoho / Startup" oninput="updateInquiryPreview()"/>
+          <div class="project-links">
+            <a href="https://gmart-inventory.onrender.com/index.html" target="_blank" rel="noopener noreferrer" class="p-link primary">Live Demo ↗</a>
+            <button class="p-link" onclick="openCredsModal()">Test Logins 🔑</button>
+            <a href="https://github.com/gokulrajvel/GMart-Decoupled-backend" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
           </div>
-          <div class="form-group">
-            <label for="inqNote">Custom Note (Optional)</label>
-            <textarea id="inqNote" class="form-control" placeholder="Add any details about role, location, or stack..." oninput="updateInquiryPreview()"></textarea>
-          </div>
-          <button class="btn btn-primary" style="width:100%;" onclick="sendInquiryMail()">Launch Email Client ↗</button>
         </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <div>© 2026 Gokulraj V · Designed with clean code &amp; Three.js 3D data visualization.</div>
-      <div>Trained at Zoho (ZSGS) · B.E. Computer Science &amp; Engineering</div>
-    </footer>
+      <!-- 2. Redis Cluster Lifecycle -->
+      <div class="project-card panel featured" data-cat="devops" data-repo="Redis-Cluster-Lifecycle">
+        <div class="project-header">
+          <span class="project-tag">DevOps &amp; High Availability</span>
+          <h3 class="project-title">Redis Cluster Lifecycle Tool</h3>
+          <p class="project-desc">
+            Zero-downtime cluster orchestration automating rolling failovers, master-replica health checks, and cluster topology reconfiguration using Ansible &amp; Docker.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Redis</span>
+            <span class="stack-chip">Docker</span>
+            <span class="stack-chip">Podman</span>
+            <span class="stack-chip">Ansible</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Bash</span>
+            <span class="stack-chip">Linux</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/Redis-Cluster-Lifecycle" target="_blank" rel="noopener noreferrer" class="p-link primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
 
-  </div><!-- /#app -->
+      <!-- 3. Saravana Engineering -->
+      <div class="project-card panel featured" data-cat="freelance" data-repo="Saravana Engineering">
+        <div class="project-header">
+          <span class="project-tag freelance">Freelance Client Delivery</span>
+          <h3 class="project-title">Saravana Engineering Client Portal</h3>
+          <p class="project-desc">
+            Production website designed and launched live for an industrial machining firm, featuring mobile-first catalogs, workshop inquiry forms, and Netlify CI/CD.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">Netlify</span>
+            <span class="stack-chip">Client Delivery</span>
+          </div>
+          <div class="project-links">
+            <a href="https://saravana-engineering.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-link primary">Live Client Site ↗</a>
+            <button class="p-link" onclick="openWorkshopModal()">Workshop Photos 📸</button>
+            <a href="https://github.com/gokulrajvel/Saravana-Engineering" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Yosan Finance -->
+      <div class="project-card panel" data-cat="backend" data-repo="Yosan">
+        <div class="project-header">
+          <span class="project-tag">Distributed Systems</span>
+          <h3 class="project-title">Yosan — Personal Finance Engine</h3>
+          <p class="project-desc">
+            Multi-tenant financial tracking engine with Spring Boot REST APIs, Redis cache layer for sub-millisecond account balance lookups, and Docker containers.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">Spring Boot</span>
+            <span class="stack-chip">MySQL</span>
+            <span class="stack-chip">Redis</span>
+            <span class="stack-chip">Docker</span>
+            <span class="stack-chip">Maven</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yosanfinance-sudo" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Organization ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Finance OS -->
+      <div class="project-card panel" data-cat="mobile" data-repo="finance-os">
+        <div class="project-header">
+          <span class="project-tag">Mobile &amp; Applied AI</span>
+          <h3 class="project-title">Finance OS — Android &amp; Gemini AI</h3>
+          <p class="project-desc">
+            Native Android dashboard integrating Google Gemini API to parse financial statement screenshots and automate spending categorization with Room DB storage.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Kotlin</span>
+            <span class="stack-chip">Android SDK</span>
+            <span class="stack-chip">Gemini AI</span>
+            <span class="stack-chip">Room DB</span>
+            <span class="stack-chip">Jetpack</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/finance-os" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. GMart Mobile Companion -->
+      <div class="project-card panel" data-cat="mobile" data-repo="MobileApp">
+        <div class="project-header">
+          <span class="project-tag">Mobile Companion</span>
+          <h3 class="project-title">GMart Mobile Inventory Companion</h3>
+          <p class="project-desc">
+            Android warehouse companion supporting camera-based hardware barcode scanning, offline-first SQLite synchronization, and instant low-stock notifications.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Kotlin</span>
+            <span class="stack-chip">Android</span>
+            <span class="stack-chip">Barcode Scan</span>
+            <span class="stack-chip">Room DB</span>
+            <span class="stack-chip">Material 3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/MobileApp" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. SIET Placement Portal -->
+      <div class="project-card panel" data-cat="backend" data-repo="SIET Placement">
+        <div class="project-header">
+          <span class="project-tag">Campus Automation</span>
+          <h3 class="project-title">SIET Placement Management Portal</h3>
+          <p class="project-desc">
+            Enterprise console portal managing corporate recruitment drives, applicant eligibility filters, and interview stages using MVP architecture and JDBC.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">MySQL</span>
+            <span class="stack-chip">JDBC</span>
+            <span class="stack-chip">MVP Architecture</span>
+            <span class="stack-chip">DTOs</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/SIET_Placement_Management" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Bank ATM Simulator -->
+      <div class="project-card panel" data-cat="core" data-repo="Bank ATM">
+        <div class="project-header">
+          <span class="project-tag">Security &amp; DOM</span>
+          <h3 class="project-title">Bank ATM Simulator</h3>
+          <p class="project-desc">
+            Interactive ATM engine built with pure object-oriented JavaScript, PIN hashing, brute-force lockout safeguards, and real-time transaction ledger.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">DOM</span>
+            <span class="stack-chip">OOP</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/Bank_ATM" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Camera Rental -->
+      <div class="project-card panel" data-cat="core" data-repo="Camera Rental">
+        <div class="project-header">
+          <span class="project-tag">Enterprise OOP</span>
+          <h3 class="project-title">Camera Rental Enterprise System</h3>
+          <p class="project-desc">
+            Production equipment inventory management software utilizing MVC patterns, automated depreciation schedules, and return penalty calculation engines.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">MVC</span>
+            <span class="stack-chip">OOP</span>
+            <span class="stack-chip">Collections</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/Camera_Rental" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Vehicle Fleet -->
+      <div class="project-card panel" data-cat="backend" data-repo="Vehicle Fleet">
+        <div class="project-header">
+          <span class="project-tag">Database &amp; RBAC</span>
+          <h3 class="project-title">Vehicle Fleet &amp; Rental Booking</h3>
+          <p class="project-desc">
+            Fleet management application featuring SQL injection defense via parameterized JDBC queries, transactional booking guarantees, and customer portals.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">MySQL</span>
+            <span class="stack-chip">JDBC</span>
+            <span class="stack-chip">RBAC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/gokulrajvel/Vehicle_Management" target="_blank" rel="noopener noreferrer" class="p-link">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Problem Solving & DSA -->
+      <div class="project-card panel" data-cat="core" data-repo="problem-solving">
+        <div class="project-header">
+          <span class="project-tag">Algorithms &amp; DSA</span>
+          <h3 class="project-title">Problem Solving &amp; DSA Repository</h3>
+          <p class="project-desc">
+            Curated repository of 150+ optimal Java solutions covering sliding window, binary trees, graph traversals, bit manipulation, and dynamic programming.
+          </p>
+        </div>
+        <div>
+          <div class="project-stack">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">DSA</span>
+            <span class="stack-chip">LeetCode (150+)</span>
+            <span class="stack-chip">HackerRank</span>
+          </div>
+          <div class="project-links">
+            <a href="https://leetcode.com/u/vgokulraj360/" target="_blank" rel="noopener noreferrer" class="p-link primary">LeetCode Profile ↗</a>
+            <a href="https://github.com/gokulrajvel/problem-solving" target="_blank" rel="noopener noreferrer" class="p-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-eyebrow">04 · Journey</div>
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <p class="section-desc">Practical software engineering experience, client delivery, and certified foundation.</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Zoho -->
+      <div class="timeline-item panel">
+        <div class="timeline-header">
+          <div class="timeline-role">Technical Trainee</div>
+          <div class="timeline-period">Jan 2026 – Jun 2026</div>
+        </div>
+        <div class="timeline-org">Zoho Corporation (Zoho Schools of Graduate Studies / ZSGS)</div>
+        <p class="timeline-desc">
+          Completed intensive technical training covering Advanced Java, Data Structures &amp; Algorithms, Multithreading, Debugging &amp; Root-Cause Analysis, N-tier REST APIs, Docker, and Git workflows. Built scalable enterprise modules following production-grade Zoho software standards.
+        </p>
+      </div>
+
+      <!-- Freelance -->
+      <div class="timeline-item panel">
+        <div class="timeline-header">
+          <div class="timeline-role">Freelance Web Developer</div>
+          <div class="timeline-period">Completed Client Project</div>
+        </div>
+        <div class="timeline-org">Saravana Engineering · Netlify Production Delivery</div>
+        <p class="timeline-desc">
+          Direct client engagement: gathered industrial machining requirements, designed mobile-responsive product catalogs, built interactive inquiry forms, and launched the commercial site to production on Netlify.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="timeline-item panel">
+        <div class="timeline-header">
+          <div class="timeline-role">B.E. Computer Science and Engineering</div>
+          <div class="timeline-period">2021 – 2025 · CGPA: 7.19</div>
+        </div>
+        <div class="timeline-org">Sri Shakthi Institute of Engineering and Technology, Coimbatore</div>
+        <p class="timeline-desc">
+          Graduated with strong foundations in Operating Systems, Database Management Systems, Computer Networks, Software Engineering, Object-Oriented Analysis, and Algorithmic Design.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="section-header">
+      <div class="section-eyebrow">05 · Credentials</div>
+      <h2 class="section-title">Verified Certifications</h2>
+      <p class="section-desc">Industry-standard accreditations validating core Java competence and software foundations.</p>
+    </div>
+
+    <div class="cert-card panel">
+      <div class="cert-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <div class="cert-title">Oracle Certified Foundations Associate, Java</div>
+        <div class="cert-meta">Oracle University · Comprehensive Object-Oriented Java &amp; Core Platform APIs</div>
+      </div>
+      <div>
+        <button class="btn btn-secondary" onclick="openCertModal()">View Certificate 🔍</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <div class="resume-box panel">
+      <div class="resume-info">
+        <h3>Download Professional Resume</h3>
+        <p>
+          One-page verified resume detailing technical stack (Java, Spring Boot, Redis, Docker, Android), enterprise training at Zoho, freelance client work, and educational credentials.
+        </p>
+      </div>
+      <div>
+        <a href="assets/resume/Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" download="Gokulraj_V_Java_Full_Stack_Developer_Resume.pdf" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download PDF (1-Page)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-eyebrow">06 · Connect</div>
+      <h2 class="section-title">Let's Discuss Opportunities</h2>
+      <p class="section-desc">Open for entry-level Java Backend, Full Stack Developer, or Software Engineer roles in India or Remote.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p>
+          I am available to start immediately. Whether you have an open engineering position, need to scale your backend services, or want to discuss my technical projects — I'd love to connect.
+        </p>
+
+        <div class="email-display-card panel">
+          <div>
+            <div style="font-size:0.75rem; font-family:var(--font-mono); color:var(--mute); margin-bottom:0.2rem;">DIRECT INBOX</div>
+            <div class="email-text">vgokulraj360@gmail.com</div>
+          </div>
+          <button class="btn btn-secondary" onclick="copyEmail()" id="copyBtn">Copy Email</button>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:vgokulraj360@gmail.com" class="btn btn-primary">Send Email Directly</a>
+          <a href="https://www.linkedin.com/in/gokulraj-v-b12ba8236" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Connect on LinkedIn</a>
+          <a href="https://github.com/gokulrajvel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Profile</a>
+        </div>
+      </div>
+
+      <!-- Recruiter Quick Inquiry Builder -->
+      <div class="inquiry-panel panel">
+        <h3>Quick Recruiter Message Builder</h3>
+        <div class="form-group">
+          <label for="inqTopic">Inquiry Topic</label>
+          <select id="inqTopic" class="form-control">
+            <option value="interview">Schedule an Interview</option>
+            <option value="java_role">Java Backend Developer Opportunity</option>
+            <option value="fullstack_role">Full Stack Developer Role</option>
+            <option value="freelance">Freelance Web Project</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inqCompany">Your Company / Organization</label>
+          <input type="text" id="inqCompany" class="form-control" placeholder="e.g. Acme Corp / Zoho / Startup"/>
+        </div>
+        <div class="form-group">
+          <label for="inqNote">Custom Note (Optional)</label>
+          <textarea id="inqNote" class="form-control" placeholder="Add any details about role, location, or stack..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%;" onclick="sendInquiryMail()">Launch Email Client ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>© 2026 Gokulraj V · Built with clean software standards &amp; Three.js 3D data visualization.</div>
+    <div>Trained at Zoho (ZSGS) · B.E. Computer Science &amp; Engineering</div>
+  </footer>
 
   <!-- Modal 1: GMart Credentials -->
   <div class="modal-overlay" id="credsModal" onclick="closeCredsModal(event)">
@@ -1873,24 +1949,30 @@
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- Interactive 3D WebGL Skill Graph Engine -->
+  <!-- Interactive 3D Skill Graph Engine (Safely scoped inside #graphFrame) -->
   <script>
   (function(){
+    var frameEl = document.getElementById('graphFrame');
     var cv = document.getElementById('gl');
-    var hud = document.getElementById('hud');
     var hudtxt = document.getElementById('hudtxt');
-    if (!window.THREE || !cv) return;
+    var hudBar = document.getElementById('hudBar');
+    if (!window.THREE || !cv || !frameEl) return;
 
-    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var w = frameEl.clientWidth || 800;
+    var h = frameEl.clientHeight || 480;
+
     var renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(w, h, false);
 
     var scene = new THREE.Scene();
-    var cam = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    var cam = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
+    cam.position.set(0, 3, 14);
+    cam.lookAt(0, 0, 0);
 
-    var pl = new THREE.PointLight(0xffffff, 1.3, 50);
-    pl.position.set(0, 6, 6);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    var pl = new THREE.PointLight(0xffffff, 1.4, 50);
+    pl.position.set(0, 8, 8);
     scene.add(pl);
 
     var g = new THREE.Group();
@@ -1937,7 +2019,7 @@
       c.width = 512;
       c.height = 128;
       var ctx = c.getContext('2d');
-      ctx.font = '600 52px Sora, sans-serif';
+      ctx.font = '600 50px Sora, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = color;
@@ -1954,7 +2036,7 @@
     var skillPos = {};
     var skillGroup = {};
 
-    // Hub node
+    // Center Hub
     var hub = new THREE.Mesh(
       new THREE.IcosahedronGeometry(0.75, 2),
       new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffb454, emissiveIntensity: 0.65, flatShading: true })
@@ -1964,7 +2046,7 @@
     hubLbl.position.set(0, 1.25, 0);
     g.add(hubLbl);
 
-    // Skills arrangement
+    // Arrange skills
     GR.forEach(function(gr, gi) {
       var n = gr[1].length;
       gr[1].forEach(function(name, j) {
@@ -1980,8 +2062,8 @@
         m.position.copy(p);
         g.add(m);
 
-        var l = makeLabel(name, 0.48, '#ece9ff');
-        l.position.copy(p).add(new THREE.Vector3(0, 0.48, 0));
+        var l = makeLabel(name, 0.46, '#ece9ff');
+        l.position.copy(p).add(new THREE.Vector3(0, 0.45, 0));
         g.add(l);
 
         items[name] = { m: m, l: l, kind: 'skill' };
@@ -1990,7 +2072,7 @@
       });
     });
 
-    // Repos and edges
+    // Arrange repos & edges
     var hubLines = [];
     var repoLines = {};
 
@@ -2005,8 +2087,8 @@
       m.position.copy(p);
       g.add(m);
 
-      var l = makeLabel(rp[0], 0.55, '#ece9ff');
-      l.position.copy(p).add(new THREE.Vector3(0, 0.68, 0));
+      var l = makeLabel(rp[0], 0.52, '#ece9ff');
+      l.position.copy(p).add(new THREE.Vector3(0, 0.65, 0));
       g.add(l);
 
       items[rp[0]] = { m: m, l: l, kind: 'repo' };
@@ -2019,7 +2101,7 @@
 
       var ln = new THREE.LineSegments(
         new THREE.BufferGeometry().setFromPoints(pts),
-        new THREE.LineBasicMaterial({ color: 0x8d92d6, transparent: true, opacity: 0.25 })
+        new THREE.LineBasicMaterial({ color: 0x8d92d6, transparent: true, opacity: 0.28 })
       );
       g.add(ln);
       repoLines[rp[0]] = ln;
@@ -2030,85 +2112,7 @@
       new THREE.LineBasicMaterial({ color: 0xffb454, transparent: true, opacity: 0.35 })
     ));
 
-    // Ambient stars
-    var sp = new Float32Array(400 * 3);
-    for (var s = 0; s < sp.length; s++) sp[s] = (Math.random() - 0.5) * 70;
-    var sg = new THREE.BufferGeometry();
-    sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
-    scene.add(new THREE.Points(sg, new THREE.PointsMaterial({ size: 0.05, color: 0x9aa0e0, transparent: true, opacity: 0.4 })));
-
-    // Highlight state & HUD
-    var act = null;
-    var DEF_HUD = '11 GitHub repos linked to 35 skills. Hover a project or a skill group to see how they connect.';
-
-    function setHL(repos, skills, text) {
-      act = null;
-      if (!repos && !skills) {
-        hudtxt.textContent = DEF_HUD;
-        hud.classList.remove('active-hud');
-        return;
-      }
-      act = {};
-      (repos || []).forEach(function(r) { act[r] = 1; });
-      (skills || []).forEach(function(s) { act[s] = 1; });
-      hudtxt.innerHTML = text;
-      hud.classList.add('active-hud');
-    }
-
-    function repoHL(name) {
-      var sk = {};
-      REPOS.forEach(function(r) {
-        if (r[0] === name) {
-          r[1].forEach(function(s) { sk[s] = 1; });
-        }
-      });
-      setHL([name], Object.keys(sk), '<b>' + name + '</b> uses ' + Object.keys(sk).join(', '));
-    }
-
-    function groupHL(gn) {
-      var sk = [];
-      var rs = [];
-      GR.forEach(function(x) { if (x[0] === gn) sk = x[1]; });
-      REPOS.forEach(function(r) {
-        if (r[1].some(function(s) { return sk.indexOf(s) > -1; })) rs.push(r[0]);
-      });
-      setHL(rs, sk, '<b>' + gn + '</b> skills appear in ' + rs.join(', '));
-    }
-
-    // Bind Project Cards hover to 3D graph
-    document.querySelectorAll('.project-card').forEach(function(card) {
-      var repo = card.getAttribute('data-repo');
-      if (repo && items[repo]) {
-        card.addEventListener('mouseenter', function() { repoHL(repo); });
-        card.addEventListener('mouseleave', function() { setHL(null); });
-      }
-    });
-
-    // Bind Skill Cards hover to 3D graph
-    document.querySelectorAll('.skill-card').forEach(function(card) {
-      var grp = card.getAttribute('data-group');
-      if (grp) {
-        card.addEventListener('mouseenter', function() { groupHL(grp); });
-        card.addEventListener('mouseleave', function() { setHL(null); });
-      }
-    });
-
-    // Node Click URLs
-    var UB = {
-      'GMart': 'https://gmart-inventory.onrender.com/index.html',
-      'Redis-Cluster-Lifecycle': 'https://github.com/gokulrajvel/Redis-Cluster-Lifecycle',
-      'Saravana Engineering': 'https://saravana-engineering.netlify.app/',
-      'Yosan': 'https://github.com/yosanfinance-sudo',
-      'finance-os': 'https://github.com/gokulrajvel/finance-os',
-      'MobileApp': 'https://github.com/gokulrajvel/MobileApp',
-      'SIET Placement': 'https://github.com/gokulrajvel/SIET_Placement_Management',
-      'Bank ATM': 'https://github.com/gokulrajvel/Bank_ATM',
-      'Camera Rental': 'https://github.com/gokulrajvel/Camera_Rental',
-      'Vehicle Fleet': 'https://github.com/gokulrajvel/Vehicle_Management',
-      'problem-solving': 'https://github.com/gokulrajvel/problem-solving'
-    };
-
-    // Edge Energy Pulses
+    // Pulses
     var E = [];
     REPOS.forEach(function(r) {
       r[1].forEach(function(sn) {
@@ -2134,109 +2138,162 @@
     pgm.setAttribute('color', new THREE.BufferAttribute(pcol, 3));
     g.add(new THREE.Points(pgm, new THREE.PointsMaterial({ size: 0.18, vertexColors: true, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false })));
 
-    // Raycaster for direct node interactions
-    var rc = new THREE.Raycaster();
-    var mv = new THREE.Vector2();
-    var meshes = [];
-    var hover = null;
-    for (var nk in items) {
-      items[nk].m.userData.n = nk;
-      meshes.push(items[nk].m);
+    // Highlight & HUD
+    var act = null;
+    var DEF_HUD = '11 GitHub repos linked to 35 skills. Hover a project or a skill group to see how they connect.';
+
+    function setHL(repos, skills, text) {
+      act = null;
+      if (!repos && !skills) {
+        hudtxt.textContent = DEF_HUD;
+        hudBar.classList.remove('active');
+        return;
+      }
+      act = {};
+      (repos || []).forEach(function(r) { act[r] = 1; });
+      (skills || []).forEach(function(s) { act[s] = 1; });
+      hudtxt.innerHTML = text;
+      hudBar.classList.add('active');
     }
 
-    function pick(e) {
-      mv.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
-      rc.setFromCamera(mv, cam);
-      var h = rc.intersectObjects(meshes)[0];
-      return h ? h.object.userData.n : null;
+    function repoHL(name) {
+      var sk = {};
+      REPOS.forEach(function(r) {
+        if (r[0] === name) {
+          r[1].forEach(function(s) { sk[s] = 1; });
+        }
+      });
+      setHL([name], Object.keys(sk), '<b>' + name + '</b> uses ' + Object.keys(sk).join(', '));
     }
 
-    function hoverNode(n) {
-      if (n === hover) return;
-      hover = n;
-      cv.style.cursor = (n && items[n].kind === 'repo') ? 'pointer' : 'default';
-      if (!n) { setHL(null); return; }
-      if (items[n].kind === 'repo') { repoHL(n); return; }
-      var rs = REPOS.filter(function(r) { return r[1].indexOf(n) > -1; }).map(function(r) { return r[0]; });
-      setHL(rs, [n], '<b>' + n + '</b> (' + skillGroup[n] + ') is used in ' + rs.join(', '));
+    function groupHL(gn) {
+      var sk = [];
+      var rs = [];
+      GR.forEach(function(x) { if (x[0] === gn) sk = x[1]; });
+      REPOS.forEach(function(r) {
+        if (r[1].some(function(s) { return sk.indexOf(s) > -1; })) rs.push(r[0]);
+      });
+      setHL(rs, sk, '<b>' + gn + '</b> skills appear in ' + rs.join(', '));
     }
 
-    addEventListener('pointermove', function(e) {
-      if (e.pointerType !== 'mouse') return;
-      if (e.target === cv) hoverNode(pick(e));
-      else if (hover) hoverNode(null);
-    });
-
-    cv.addEventListener('click', function(e) {
-      if (hover && items[hover].kind === 'repo') {
-        window.open(UB[hover], '_blank');
+    // Bind cards on page to highlight in graph
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      var repo = card.getAttribute('data-repo');
+      if (repo && items[repo]) {
+        card.addEventListener('mouseenter', function() { repoHL(repo); });
+        card.addEventListener('mouseleave', function() { setHL(null); });
       }
     });
 
-    // 3D Camera scroll trajectory
-    var P = [[0, 4, 14], [10, 3, 10], [0, 13, 4], [-10, 2, 10], [0, 0, 15]];
-    var sc = 0;
-    var mx = 0, my = 0;
-
-    function onScroll() {
-      var h = document.documentElement.scrollHeight - innerHeight;
-      sc = h > 0 ? (scrollY / h) * (P.length - 1) : 0;
-    }
-    addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    addEventListener('pointermove', function(e) {
-      mx = e.clientX / innerWidth - 0.5;
-      my = e.clientY / innerHeight - 0.5;
+    document.querySelectorAll('.skill-card').forEach(function(card) {
+      var grp = card.getAttribute('data-group');
+      if (grp) {
+        card.addEventListener('mouseenter', function() { groupHL(grp); });
+        card.addEventListener('mouseleave', function() { setHL(null); });
+      }
     });
 
+    // Raycast & Drag Orbit in Frame
+    var isDragging = false;
+    var prevMouse = { x: 0, y: 0 };
+    var autoRotate = true;
+    var targetRotY = 0;
+    var targetRotX = 0;
+
+    frameEl.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      prevMouse = { x: e.clientX, y: e.clientY };
+    });
+
+    window.addEventListener('mouseup', function() { isDragging = false; });
+
+    frameEl.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        var dx = e.clientX - prevMouse.x;
+        var dy = e.clientY - prevMouse.y;
+        targetRotY += dx * 0.008;
+        targetRotX += dy * 0.008;
+        targetRotX = Math.max(-1.1, Math.min(1.1, targetRotX));
+        prevMouse = { x: e.clientX, y: e.clientY };
+      }
+    });
+
+    // Touch support for mobile
+    frameEl.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', function() { isDragging = false; });
+
+    frameEl.addEventListener('touchmove', function(e) {
+      if (isDragging && e.touches.length === 1) {
+        var dx = e.touches[0].clientX - prevMouse.x;
+        var dy = e.touches[0].clientY - prevMouse.y;
+        targetRotY += dx * 0.01;
+        targetRotX += dy * 0.01;
+        prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    }, { passive: true });
+
+    // Controls
+    var toggleRotateBtn = document.getElementById('toggleRotateBtn');
+    if (toggleRotateBtn) {
+      toggleRotateBtn.addEventListener('click', function() {
+        autoRotate = !autoRotate;
+        toggleRotateBtn.textContent = autoRotate ? 'Pause Rotation' : 'Resume Rotation';
+      });
+    }
+
+    var resetViewBtn = document.getElementById('resetViewBtn');
+    if (resetViewBtn) {
+      resetViewBtn.addEventListener('click', function() {
+        targetRotX = 0;
+        targetRotY = 0;
+        cam.position.set(0, 3, 14);
+        cam.lookAt(0, 0, 0);
+        setHL(null);
+      });
+    }
+
+    // Resize
     function onResize() {
-      renderer.setSize(innerWidth, innerHeight, false);
-      cam.aspect = innerWidth / innerHeight;
+      if (!frameEl) return;
+      var nw = frameEl.clientWidth;
+      var nh = frameEl.clientHeight;
+      renderer.setSize(nw, nh, false);
+      cam.aspect = nw / nh;
       cam.updateProjectionMatrix();
     }
-    addEventListener('resize', onResize);
-    onResize();
+    window.addEventListener('resize', onResize);
 
-    var cur = new THREE.Vector3(0, 16, 48);
     var clock = new THREE.Clock();
-    function lerp(a, b, t) { return a + (b - a) * t; }
 
-    var animActive = true;
-    function frame() {
-      if (!animActive) return;
+    function renderLoop() {
+      requestAnimationFrame(renderLoop);
       var t = clock.elapsedTime;
-      var dt = clock.getDelta();
 
-      var i = Math.min(Math.floor(sc), P.length - 2);
-      var f = sc - i;
-      f = f * f * (3 - 2 * f);
-      var A = P[i], B = P[i + 1];
-      var w = innerWidth < 700 ? 1.5 : 1;
-
-      cur.x += ((lerp(A[0], B[0], f) + mx * 2) * w - cur.x) * 0.06;
-      cur.y += ((lerp(A[1], B[1], f) - my * 1.5) - cur.y) * 0.06;
-      cur.z += (lerp(A[2], B[2], f) * w - cur.z) * 0.06;
-
-      cam.position.copy(cur);
-      cam.lookAt(innerWidth < 700 ? 0 : -2.5, innerWidth < 700 ? -2.2 : 0, 0);
-
-      if (!still) {
-        g.rotation.y = t * 0.05;
-        hub.rotation.y = t * 0.35;
+      if (autoRotate && !isDragging) {
+        targetRotY += 0.0025;
       }
+
+      g.rotation.y += (targetRotY - g.rotation.y) * 0.1;
+      g.rotation.x += (targetRotX - g.rotation.x) * 0.1;
+      hub.rotation.y = t * 0.4;
 
       for (var k in items) {
         var it = items[k];
-        var goal = !act ? 1 : (act[k] ? 1 : 0.12);
-        var sc2 = act && act[k] ? 1.45 : 1;
+        var goal = !act ? 1 : (act[k] ? 1 : 0.15);
+        var sc2 = act && act[k] ? 1.4 : 1;
         it.m.material.opacity += (goal - it.m.material.opacity) * 0.12;
         it.l.material.opacity += (goal - it.l.material.opacity) * 0.12;
         it.m.scale.setScalar(it.m.scale.x + (sc2 - it.m.scale.x) * 0.12);
 
         if (it.kind === 'repo') {
           var lm = repoLines[k].material;
-          var lg = !act ? 0.25 : (act[k] ? 0.95 : 0.03);
+          var lg = !act ? 0.28 : (act[k] ? 0.95 : 0.04);
           lm.opacity += (lg - lm.opacity) * 0.12;
         }
       }
@@ -2244,7 +2301,7 @@
       for (var q = 0; q < E.length; q++) {
         var e = E[q];
         if (!act || act[e.r]) {
-          var f2 = still ? 0.5 : (t * e.sp + e.o) % 1;
+          var f2 = (t * e.sp + e.o) % 1;
           pp[q * 3] = e.a.x + (e.b.x - e.a.x) * f2;
           pp[q * 3 + 1] = e.a.y + (e.b.y - e.a.y) * f2;
           pp[q * 3 + 2] = e.a.z + (e.b.z - e.a.z) * f2;
@@ -2255,27 +2312,8 @@
       pgm.attributes.position.needsUpdate = true;
 
       renderer.render(scene, cam);
-      requestAnimationFrame(frame);
     }
-    frame();
-
-    // 3D Toggle
-    var toggleBtn = document.getElementById('toggle3D');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', function() {
-        if (cv.style.opacity === '0') {
-          cv.style.opacity = '1';
-          toggleBtn.style.borderColor = 'var(--teal)';
-          toggleBtn.querySelector('.dot').style.background = 'var(--teal)';
-          animActive = true;
-          frame();
-        } else {
-          cv.style.opacity = '0';
-          toggleBtn.style.borderColor = 'var(--line)';
-          toggleBtn.querySelector('.dot').style.background = 'var(--mute)';
-        }
-      });
-    }
+    renderLoop();
   })();
   </script>
 
@@ -2441,10 +2479,6 @@
     }
 
     // ── 8. Recruiter Inquiry Mail Generator ──
-    function updateInquiryPreview() {
-      // Live feedback or custom states if needed
-    }
-
     function sendInquiryMail() {
       var topicEl = document.getElementById('inqTopic');
       var companyEl = document.getElementById('inqCompany');
