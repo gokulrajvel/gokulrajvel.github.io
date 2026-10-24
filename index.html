@@ -123,10 +123,10 @@
       border-bottom-color: var(--line);
     }
     .nav-container {
-      max-width: 1200px;
+      max-width: 1320px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 clamp(1.5rem, 4vw, 3.5rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -219,11 +219,26 @@
 
     /* ── SECTIONS BASE ── */
     section {
-      padding: 6.5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 0;
+      width: 100%;
       position: relative;
+      border-bottom: 1px solid var(--line-subtle);
     }
+    .section-inner {
+      max-width: 1320px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 6.5rem clamp(1.5rem, 4vw, 3.5rem);
+    }
+    /* Alternating section backgrounds — full width edge-to-edge bleed */
+    #home     { background: #0d1124; }
+    #about    { background: #10142b; }
+    #skills   { background: #0b0e1f; }
+    #projects { background: #10142b; }
+    #experience { background: #0b0e1f; }
+    #certifications { background: #10142b; }
+    #resume   { background: #0b0e1f; }
+    #contact  { background: #10142b; }
     .section-header {
       margin-bottom: 3.2rem;
     }
@@ -310,11 +325,16 @@
 
     /* ── HERO SECTION (CLEAN, FOCUSED, CLUTTER-FREE) ── */
     #home {
-      min-height: clamp(620px, calc(100vh - 72px), 880px);
-      padding: 6.5rem 2rem 4rem;
+      min-height: calc(100vh - 72px);
+      padding: 0;
+      width: 100%;
       display: flex;
       align-items: center;
       position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 85% 25%, rgba(79, 209, 197, 0.1) 0%, transparent 60%),
+                  radial-gradient(circle at 15% 80%, rgba(255, 180, 84, 0.08) 0%, transparent 50%),
+                  #0d1124;
     }
     #home::before {
       content: '';
@@ -330,8 +350,8 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 4.5rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
       align-items: center;
       width: 100%;
       position: relative;
@@ -353,6 +373,9 @@
       color: var(--ink);
       line-height: 1.08;
       margin-bottom: 0.9rem;
+      background: linear-gradient(135deg, #ffffff 40%, #e6e3ff 70%, #ffbe6b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .role-wrapper {
       min-height: 2.2rem;
@@ -417,8 +440,8 @@
       position: relative;
     }
     .tilt-card {
-      width: 330px;
-      height: 400px;
+      width: clamp(310px, 24vw, 380px);
+      height: clamp(380px, 30vw, 460px);
       border-radius: var(--radius-lg);
       background: var(--bg-panel);
       border: 1px solid var(--line);
@@ -998,9 +1021,14 @@
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--line-subtle);
-      padding: 2.5rem 2rem;
-      max-width: 1200px;
+      background: #080b18;
+      width: 100%;
+    }
+    .footer-inner {
+      max-width: 1320px;
+      width: 100%;
       margin: 0 auto;
+      padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1153,8 +1181,180 @@
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
       .hero-social { gap: 0.65rem 1rem; }
-      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+      footer .footer-inner { flex-direction: column; gap: 0.8rem; text-align: center; }
       .graph-frame { height: 360px; }
+    }
+
+    /* ── SCROLL-REVEAL ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero entrance */
+    .hero-greeting { animation: fadeUp 0.55s var(--ease) 0.1s both; }
+    .hero-name     { animation: fadeUp 0.65s var(--ease) 0.22s both; }
+    .role-wrapper  { animation: fadeUp 0.6s var(--ease) 0.38s both; }
+    .hero-bio      { animation: fadeUp 0.6s var(--ease) 0.52s both; }
+    .hero-actions  { animation: fadeUp 0.6s var(--ease) 0.66s both; }
+    .hero-social   { animation: fadeUp 0.6s var(--ease) 0.8s both; }
+    .tilt-card     { animation: slideInRight 0.7s var(--ease) 0.35s both; }
+
+    /* Scroll reveal base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    /* Stagger delays */
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.12s; }
+    .stagger-3 { transition-delay: 0.19s; }
+    .stagger-4 { transition-delay: 0.26s; }
+    .stagger-5 { transition-delay: 0.33s; }
+    .stagger-6 { transition-delay: 0.40s; }
+    .stagger-7 { transition-delay: 0.47s; }
+    .stagger-8 { transition-delay: 0.54s; }
+
+    /* Metric counter animation */
+    .metric-val { transition: color 0.3s ease; }
+    .metric-card.counting .metric-val {
+      animation: countUp 0.5s var(--ease) both;
+    }
+
+    /* Skill card colored glow on hover */
+    .skill-card[data-group="Backend"]:hover     { border-color: #ffb454; box-shadow: 0 0 24px rgba(255,180,84,0.22); }
+    .skill-card[data-group="Frontend"]:hover    { border-color: #b79cff; box-shadow: 0 0 24px rgba(183,156,255,0.22); }
+    .skill-card[data-group="Mobile and AI"]:hover { border-color: #f78fb3; box-shadow: 0 0 24px rgba(247,143,179,0.22); }
+    .skill-card[data-group="Data"]:hover        { border-color: #4fd1c5; box-shadow: 0 0 24px rgba(79,209,197,0.22); }
+    .skill-card[data-group="DevOps"]:hover      { border-color: #6fb3ff; box-shadow: 0 0 24px rgba(111,179,255,0.22); }
+    .skill-card[data-group="Security"]:hover    { border-color: #ff7a90; box-shadow: 0 0 24px rgba(255,122,144,0.22); }
+    .skill-card[data-group="Testing"]:hover     { border-color: #8be28b; box-shadow: 0 0 24px rgba(139,226,139,0.22); }
+    .skill-card[data-group="Core"]:hover        { border-color: #e6e06a; box-shadow: 0 0 24px rgba(230,224,106,0.22); }
+
+    /* Project card enhanced hover */
+    .project-card {
+      transition: all 0.28s var(--ease);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .project-card.featured:hover { border-color: rgba(255,180,84,0.55); }
+
+    /* Timeline slide-in */
+    .timeline-item {
+      transition: all 0.3s ease;
+    }
+    .timeline-item:hover {
+      background: var(--bg-panel-hover);
+      border-color: var(--amber);
+    }
+
+    /* Subtle animated gradient bg for hero */
+    #home::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--line) 30%, var(--amber) 50%, var(--line) 70%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    /* Ambient glow orbs */
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+      animation: orbFloat 8s ease-in-out infinite alternate;
+    }
+    @keyframes orbFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(20px, -15px) scale(1.08); }
+    }
+
+    /* Pulse animation for status dot */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 6px var(--mint); opacity: 1; }
+      50%       { box-shadow: 0 0 14px var(--mint); opacity: 0.7; }
+    }
+    .status-dot::before {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    /* Graph pulse dot blink */
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+    .graph-badge .pulse {
+      animation: pulseDot 1.4s ease-in-out infinite;
+    }
+
+    /* Scroll progress shimmer */
+    #scroll-progress {
+      background: linear-gradient(90deg, var(--amber), var(--teal), var(--purple));
+      background-size: 200% 100%;
+      animation: shimmer 2.5s linear infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
     }
   </style>
 </head>
@@ -1191,7 +1391,11 @@
 
   <!-- Hero Section -->
   <section id="home">
-    <div class="hero-grid">
+    <!-- Ambient glow orbs -->
+    <div class="ambient-orb" style="width:500px;height:500px;top:10%;right:-80px;background:radial-gradient(circle, rgba(79,209,197,0.14) 0%, transparent 70%);animation-duration:9s;"></div>
+    <div class="ambient-orb" style="width:380px;height:380px;bottom:5%;left:-80px;background:radial-gradient(circle, rgba(255,180,84,0.1) 0%, transparent 70%);animation-duration:11s;animation-delay:2s;"></div>
+    <div class="section-inner" style="min-height: calc(100vh - 72px); display: flex; align-items: center;">
+    <div class="hero-grid" style="width:100%;">
       <div class="hero-content">
         <div class="hero-greeting">// Hello, I'm</div>
         <h1 class="hero-name">Gokulraj V</h1>
@@ -1245,11 +1449,13 @@
         </div>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- About Section -->
   <section id="about">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">01 · Overview</div>
       <h2 class="section-title">Background &amp; Expertise</h2>
       <p class="section-desc">Engineering resilient server-side architectures, real-time distributed caches, and clean client-facing applications.</p>
@@ -1268,38 +1474,40 @@
         </p>
 
         <div class="about-tags">
-          <span class="pill">📍 Tirupathur, Tamil Nadu</span>
-          <span class="pill">🎓 B.E. CSE (CGPA 7.19)</span>
-          <span class="pill">🏢 Zoho (ZSGS) Technical Training</span>
-          <span class="pill">⚡ Immediate Joiner</span>
-          <span class="pill">🌐 Open to Remote &amp; Relocation</span>
+          <span class="pill reveal stagger-1">📍 Tirupathur, Tamil Nadu</span>
+          <span class="pill reveal stagger-2">🎓 B.E. CSE (CGPA 7.19)</span>
+          <span class="pill reveal stagger-3">🏢 Zoho (ZSGS) Technical Training</span>
+          <span class="pill reveal stagger-4">⚡ Immediate Joiner</span>
+          <span class="pill reveal stagger-5">🌐 Open to Remote &amp; Relocation</span>
         </div>
       </div>
 
       <div class="about-metrics">
-        <div class="metric-card panel">
-          <div class="metric-val">150+</div>
+        <div class="metric-card panel reveal stagger-1" data-counter="150" data-suffix="+">
+          <div class="metric-val" data-target="150" data-suffix="+">150+</div>
           <div class="metric-label">LeetCode Problems Solved</div>
         </div>
-        <div class="metric-card panel">
-          <div class="metric-val teal">11</div>
+        <div class="metric-card panel reveal stagger-2" data-counter="11" data-suffix="">
+          <div class="metric-val teal" data-target="11" data-suffix="">11</div>
           <div class="metric-label">Live Repos in 3D Knowledge Map</div>
         </div>
-        <div class="metric-card panel">
-          <div class="metric-val purple">35</div>
+        <div class="metric-card panel reveal stagger-3" data-counter="35" data-suffix="">
+          <div class="metric-val purple" data-target="35" data-suffix="">35</div>
           <div class="metric-label">Verified Technologies Mastered</div>
         </div>
-        <div class="metric-card panel">
+        <div class="metric-card panel reveal stagger-4">
           <div class="metric-val gold">🦈 Pull Shark</div>
           <div class="metric-label">GitHub Contribution Badge</div>
         </div>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Skills & Architecture Section (With Dedicated 3D Knowledge Graph Frame) -->
   <section id="skills">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">02 · Technical Architecture</div>
       <h2 class="section-title">Skills &amp; Architecture Map</h2>
       <p class="section-desc">Interactive 3D dependency mapping of 11 repositories to 35 verified skills with live energy pulses. Hover any project or skill card to trace connections.</p>
@@ -1328,7 +1536,7 @@
     <!-- 8 Categorized Skill Panels -->
     <div class="skills-grid">
       <!-- 1. Backend -->
-      <div class="skill-card panel" data-group="Backend">
+      <div class="skill-card panel reveal stagger-1" data-group="Backend">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#ffb454; box-shadow:0 0 8px #ffb454;"></span>
@@ -1340,7 +1548,7 @@
       </div>
 
       <!-- 2. Frontend -->
-      <div class="skill-card panel" data-group="Frontend">
+      <div class="skill-card panel reveal stagger-2" data-group="Frontend">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#b79cff; box-shadow:0 0 8px #b79cff;"></span>
@@ -1352,7 +1560,7 @@
       </div>
 
       <!-- 3. Mobile & AI -->
-      <div class="skill-card panel" data-group="Mobile and AI">
+      <div class="skill-card panel reveal stagger-3" data-group="Mobile and AI">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#f78fb3; box-shadow:0 0 8px #f78fb3;"></span>
@@ -1364,7 +1572,7 @@
       </div>
 
       <!-- 4. Data -->
-      <div class="skill-card panel" data-group="Data">
+      <div class="skill-card panel reveal stagger-4" data-group="Data">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#4fd1c5; box-shadow:0 0 8px #4fd1c5;"></span>
@@ -1376,7 +1584,7 @@
       </div>
 
       <!-- 5. DevOps -->
-      <div class="skill-card panel" data-group="DevOps">
+      <div class="skill-card panel reveal stagger-5" data-group="DevOps">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#6fb3ff; box-shadow:0 0 8px #6fb3ff;"></span>
@@ -1388,7 +1596,7 @@
       </div>
 
       <!-- 6. Security -->
-      <div class="skill-card panel" data-group="Security">
+      <div class="skill-card panel reveal stagger-6" data-group="Security">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#ff7a90; box-shadow:0 0 8px #ff7a90;"></span>
@@ -1400,7 +1608,7 @@
       </div>
 
       <!-- 7. Testing -->
-      <div class="skill-card panel" data-group="Testing">
+      <div class="skill-card panel reveal stagger-7" data-group="Testing">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#8be28b; box-shadow:0 0 8px #8be28b;"></span>
@@ -1412,7 +1620,7 @@
       </div>
 
       <!-- 8. Core -->
-      <div class="skill-card panel" data-group="Core">
+      <div class="skill-card panel reveal stagger-8" data-group="Core">
         <div class="skill-card-header">
           <div class="skill-group-name">
             <span class="skill-indicator" style="background:#e6e06a; box-shadow:0 0 8px #e6e06a;"></span>
@@ -1423,18 +1631,20 @@
         <div class="skill-items">Data Structures &amp; Algorithms, OOP Principles, MVC/MVP, DTO Pattern, Multithreading</div>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">03 · Portfolio Showcase</div>
       <h2 class="section-title">Projects &amp; Architectures</h2>
       <p class="section-desc">Interactive portfolio of enterprise backend systems, freelance client delivery, and applied AI applications.</p>
     </div>
 
     <!-- Filters -->
-    <div class="project-filters">
+    <div class="project-filters reveal">
       <button class="filter-btn active" data-filter="all">All Projects (11)</button>
       <button class="filter-btn" data-filter="freelance">Freelance Client Work</button>
       <button class="filter-btn" data-filter="backend">Backend &amp; Microservices</button>
@@ -1704,11 +1914,13 @@
         </div>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Experience Section -->
   <section id="experience">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">04 · Journey</div>
       <h2 class="section-title">Experience &amp; Education</h2>
       <p class="section-desc">Practical software engineering experience, client delivery, and certified foundation.</p>
@@ -1716,7 +1928,7 @@
 
     <div class="timeline">
       <!-- Zoho -->
-      <div class="timeline-item panel">
+      <div class="timeline-item panel reveal reveal-left stagger-1">
         <div class="timeline-header">
           <div class="timeline-role">Technical Trainee</div>
           <div class="timeline-period">Jan 2026 – Jun 2026</div>
@@ -1728,7 +1940,7 @@
       </div>
 
       <!-- Freelance -->
-      <div class="timeline-item panel">
+      <div class="timeline-item panel reveal reveal-left stagger-2">
         <div class="timeline-header">
           <div class="timeline-role">Freelance Web Developer</div>
           <div class="timeline-period">Completed Client Project</div>
@@ -1740,7 +1952,7 @@
       </div>
 
       <!-- Education -->
-      <div class="timeline-item panel">
+      <div class="timeline-item panel reveal reveal-left stagger-3">
         <div class="timeline-header">
           <div class="timeline-role">B.E. Computer Science and Engineering</div>
           <div class="timeline-period">2021 – 2025 · CGPA: 7.19</div>
@@ -1751,17 +1963,19 @@
         </p>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Certifications Section -->
   <section id="certifications">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">05 · Credentials</div>
       <h2 class="section-title">Verified Certifications</h2>
       <p class="section-desc">Industry-standard accreditations validating core Java competence and software foundations.</p>
     </div>
 
-    <div class="cert-card panel">
+    <div class="cert-card panel reveal reveal-scale">
       <div class="cert-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
@@ -1773,11 +1987,13 @@
         <button class="btn btn-secondary" onclick="openCertModal()">View Certificate 🔍</button>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Resume Section -->
   <section id="resume">
-    <div class="resume-box panel">
+    <div class="section-inner">
+    <div class="resume-box panel reveal">
       <div class="resume-info">
         <h3>Download Professional Resume</h3>
         <p>
@@ -1791,18 +2007,20 @@
         </a>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
-    <div class="section-header">
+    <div class="section-inner">
+    <div class="section-header reveal">
       <div class="section-eyebrow">06 · Connect</div>
       <h2 class="section-title">Let's Discuss Opportunities</h2>
       <p class="section-desc">Open for entry-level Java Backend, Full Stack Developer, or Software Engineer roles in India or Remote.</p>
     </div>
 
     <div class="contact-grid">
-      <div class="contact-copy">
+      <div class="contact-copy reveal reveal-left">
         <p>
           I am available to start immediately. Whether you have an open engineering position, need to scale your backend services, or want to discuss my technical projects — I'd love to connect.
         </p>
@@ -1823,7 +2041,7 @@
       </div>
 
       <!-- Recruiter Quick Inquiry Builder -->
-      <div class="inquiry-panel panel">
+      <div class="inquiry-panel panel reveal reveal-right">
         <h3>Quick Recruiter Message Builder</h3>
         <div class="form-group">
           <label for="inqTopic">Inquiry Topic</label>
@@ -1845,12 +2063,15 @@
         <button class="btn btn-primary" style="width:100%;" onclick="sendInquiryMail()">Launch Email Client ↗</button>
       </div>
     </div>
+    </div><!-- /.section-inner -->
   </section>
 
   <!-- Footer -->
   <footer>
-    <div>© 2026 Gokulraj V · Built with clean software standards &amp; Three.js 3D data visualization.</div>
-    <div>Trained at Zoho (ZSGS) · B.E. Computer Science &amp; Engineering</div>
+    <div class="footer-inner">
+      <div>© 2026 Gokulraj V · Built with clean software standards &amp; Three.js 3D data visualization.</div>
+      <div>Trained at Zoho (ZSGS) · B.E. Computer Science &amp; Engineering</div>
+    </div>
   </footer>
 
   <!-- Modal 1: GMart Credentials -->
@@ -2319,6 +2540,74 @@
 
   <!-- Interactive UI Logic (Role Switcher, Modals, 3D Tilt, Filters, Recruiter Form) -->
   <script>
+    // ── 0. Scroll-Triggered Reveal Animations & Counters ──
+    (function(){
+      // Automatically add reveal to all project cards
+      document.querySelectorAll('.projects-grid .project-card').forEach(function(card, i){
+        card.classList.add('reveal');
+        card.style.transitionDelay = ((i % 3) * 0.1) + 's';
+      });
+
+      var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries, observer){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el){
+          revealObserver.observe(el);
+        });
+
+        // Metric Counter Animation
+        var metricCards = document.querySelectorAll('.metric-card[data-counter]');
+        var counterObserver = new IntersectionObserver(function(entries, observer){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting) {
+              var card = entry.target;
+              card.classList.add('counting');
+              var valEl = card.querySelector('.metric-val');
+              if (valEl) {
+                var target = parseInt(card.getAttribute('data-counter'), 10);
+                var suffix = card.getAttribute('data-suffix') || '';
+                animateValue(valEl, 0, target, suffix, 1400);
+              }
+              observer.unobserve(card);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        metricCards.forEach(function(c){ counterObserver.observe(c); });
+      } else {
+        // Fallback for older browsers
+        revealElements.forEach(function(el){ el.classList.add('visible'); });
+      }
+
+      function animateValue(el, start, end, suffix, duration) {
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          var current = Math.floor(ease * (end - start) + start);
+          el.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = end + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+    })();
+
     // ── 1. Dynamic Role Switcher ──
     (function(){
       var el = document.getElementById('roleTxt');
