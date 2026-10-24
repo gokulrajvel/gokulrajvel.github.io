@@ -123,10 +123,9 @@
       border-bottom-color: var(--line);
     }
     .nav-container {
-      max-width: 1320px;
       width: 100%;
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+      max-width: 100%;
+      padding: 0 clamp(1.5rem, 3.5vw, 4rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -225,10 +224,9 @@
       border-bottom: 1px solid var(--line-subtle);
     }
     .section-inner {
-      max-width: 1320px;
       width: 100%;
-      margin: 0 auto;
-      padding: 6.5rem clamp(1.5rem, 4vw, 3.5rem);
+      max-width: 100%;
+      padding: 5.5rem clamp(1.5rem, 3.5vw, 4rem);
     }
     /* Alternating section backgrounds — full width edge-to-edge bleed */
     #home     { background: #0d1124; }
@@ -267,7 +265,7 @@
       color: var(--mute);
       font-size: 1.05rem;
       margin-top: 0.75rem;
-      max-width: 680px;
+      max-width: 880px;
       line-height: 1.7;
     }
 
@@ -509,15 +507,16 @@
     /* ── ABOUT SECTION ── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 3.5rem;
-      align-items: start;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(2.5rem, 5vw, 6rem);
+      align-items: center;
     }
     .about-text p {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       color: var(--mute);
       line-height: 1.85;
       margin-bottom: 1.4rem;
+      max-width: 900px;
     }
     .about-text strong {
       color: var(--ink);
@@ -542,12 +541,12 @@
       font-weight: 500;
     }
     .about-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.3rem;
     }
     .metric-card {
-      padding: 1.4rem 1.6rem;
+      padding: 1.6rem 1.8rem;
       border-left: 3px solid var(--amber);
     }
     .metric-val {
@@ -852,9 +851,9 @@
 
     /* ── EXPERIENCE & EDUCATION ── */
     .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.8rem;
       position: relative;
     }
     .timeline-item {
@@ -1025,10 +1024,9 @@
       width: 100%;
     }
     .footer-inner {
-      max-width: 1320px;
       width: 100%;
-      margin: 0 auto;
-      padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
+      max-width: 100%;
+      padding: 2.5rem clamp(1.5rem, 3.5vw, 4rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1394,7 +1392,7 @@
     <!-- Ambient glow orbs -->
     <div class="ambient-orb" style="width:500px;height:500px;top:10%;right:-80px;background:radial-gradient(circle, rgba(79,209,197,0.14) 0%, transparent 70%);animation-duration:9s;"></div>
     <div class="ambient-orb" style="width:380px;height:380px;bottom:5%;left:-80px;background:radial-gradient(circle, rgba(255,180,84,0.1) 0%, transparent 70%);animation-duration:11s;animation-delay:2s;"></div>
-    <div class="section-inner" style="min-height: calc(100vh - 72px); display: flex; align-items: center;">
+    <div class="section-inner" style="width: 100%; padding-top: 5rem; padding-bottom: 4rem;">
     <div class="hero-grid" style="width:100%;">
       <div class="hero-content">
         <div class="hero-greeting">// Hello, I'm</div>
